@@ -1,0 +1,63 @@
+{
+    "answers": [
+      {
+        "sectionNumber": "1",
+        "levelNumber": "1",
+        "branchName": "a",
+        "answer": ["paris"]
+      },
+      {
+        "sectionNumber": "1",
+        "levelNumber": "1",
+        "branchName": "b",
+        "answer": ["leo"]
+      },
+      {
+        "sectionNumber": "1",
+        "levelNumber": "1",
+        "branchName": "c",
+        "answer": ["thebeatles"]
+      },
+      {
+        "sectionNumber": "1",
+        "levelNumber": "1",
+        "branchName": "d",
+        "answer": ["mounteverest","yayay","nahfr"]
+      },
+      {
+        "sectionNumber": "1",
+        "levelNumber": "2",
+        "branchName": "a",
+        "answer": ["nile"]
+      },
+      {
+        "sectionNumber": "1",
+        "levelNumber": "2",
+        "branchName": "b",
+        "answer": ["williamshakespeare"]
+      },
+      {
+        "sectionNumber": "1",
+        "levelNumber": "2",
+        "branchName": "c",
+        "answer": ["themonalisa"]
+      },
+      {
+        "sectionNumber": "1",
+        "levelNumber": "2",
+        "branchName": "d",
+        "answer": ["pythagoras"]
+      },
+      {
+        "sectionNumber": "1",
+        "levelNumber": "3",
+        "branchName": "a",
+        "answer": ["python"]
+      },
+      {
+        "sectionNumber": "2",
+        "levelNumber": "1",
+        "branchName": "Branch 2",
+        "answer": "Homo sapiens"
+      }]
+    }
