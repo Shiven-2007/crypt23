@@ -12,8 +12,11 @@ async function sendData(uid: string, schoolcode: string) {
   }
 }
 
-const schoolCode = (props: any) => {
-  console.log(props);
+const schoolCode = (props: {
+  uid: string | undefined;
+  schoolId: string | undefined;
+}) => {
+  if (!props.uid) return <></>;
   if (!props.schoolId) {
     const [code, setCode] = useState("");
     const change = (e: any) => {
@@ -31,13 +34,17 @@ const schoolCode = (props: any) => {
     };
     return (
       <>
-        <input onChange={change} value={code}></input>
-        <button onClick={() => sendData(props.uid ?? "L", code)}>submit</button>
+        <input
+          onChange={change}
+          value={code}
+          className="bg-gray-700 p-3"
+        ></input>
+        <button onClick={() => sendData(props.uid!, code)}>submit</button>
       </>
     );
   } else {
     const code = props.schoolId;
-    return <input value={code} disabled></input>;
+    return <input value={code} disabled className="p-2"></input>;
   }
 };
 
