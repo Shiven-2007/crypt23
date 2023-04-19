@@ -3,15 +3,18 @@ import Navbar from "./components/Navbar";
 import SchoolCode from "./components/schoolCode";
 import { getCurrentUser } from "@/server/auth";
 
-
 export default async function Page() {
-  const user: User = await getCurrentUser()
-  console.log(user)
+  const user = await getCurrentUser();
+  console.log(user);
+  const obj = {
+    uid: user?.id,
+    schoolId: user?.school_id,
+  };
   return (
-    <div className="h-screen flex justify-center flex-col">
+    <div className="flex h-screen flex-col justify-center">
       {/* @ts-expect-error Async Server Component */}
       <Navbar />
-      <SchoolCode user={user}/>
+      <SchoolCode {...obj} />
     </div>
   );
 }
