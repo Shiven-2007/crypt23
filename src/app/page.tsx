@@ -1,25 +1,17 @@
-import { prisma } from "@/server/db";
+import { User } from "next-auth";
 import Navbar from "./components/Navbar";
+import SchoolCode from "./components/schoolCode";
+import { getCurrentUser } from "@/server/auth";
 
-const getData = async () => {
-  const users = await prisma.user.findMany();
-
-  return users;
-};
 
 export default async function Page() {
+  const user: User = await getCurrentUser()
+  console.log(user)
   return (
-    <div className="h-screen">
-      {/* @ts-expect-error Server Component */}
+    <div className="h-screen flex justify-center flex-col">
+      {/* @ts-expect-error Async Server Component */}
       <Navbar />
-      <div className="flex w-full flex-col">
-        {(await getData()).map((user) => (
-          <div className="flex">
-            <div>{user.name}</div>
-            <div>{user.level}</div>
-          </div>
-        ))}
-      </div>
+      <SchoolCode user={user}/>
     </div>
   );
 }

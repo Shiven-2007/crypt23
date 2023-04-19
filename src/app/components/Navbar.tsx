@@ -13,16 +13,22 @@ export default async function Navbar() {
   //console.log(user);
   if (!!session) {
     return (
+      <>
       <nav className="flex items-center justify-evenly bg-blue-500 p-6">
         <Link href="/">Home</Link>
         <LogoutButton />
       </nav>
+      </>
     );
   }
-  return (
+  else {return (
+    <>
     <nav className="flex items-center justify-evenly bg-blue-500 p-6">
       <Link href="/">Home</Link>
       <SignInButton />
     </nav>
-  );
+    </>
+  );}
 }
+
+
