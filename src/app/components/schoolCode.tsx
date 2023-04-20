@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-
+import {motion} from "framer-motion"
 async function sendData(uid: string, schoolcode: string) {
   const res = await fetch("/schoolCheck", {
     method: "POST",
@@ -20,7 +20,7 @@ const schoolCode = (props: {
   if (!props.schoolId) {
     const [code, setCode] = useState("");
     const change = (e: any) => {
-      const text = e.target.value.toLowerCase();
+      const text = e.target.value
       const allowedChars = "0123456789";
       let status = true;
       for (let i = 0; i < text.length; i++) {
@@ -34,17 +34,25 @@ const schoolCode = (props: {
     };
     return (
       <>
+      <motion.div className="bg-zinc-800 p-3 flex flex-col" drag>
+
         <input
           onChange={change}
           value={code}
-          className="bg-gray-700 p-3"
-        ></input>
+          className="bg-zinc-600 p-3"
+          ></input>
         <button onClick={() => sendData(props.uid!, code)}>submit</button>
+          </motion.div>
       </>
     );
   } else {
     const code = props.schoolId;
-    return <input value={code} disabled className="p-2"></input>;
+    return (
+      <motion.div className="bg-gray-800 p-3">
+        <input value={code} disabled className="p-2"></input>
+      </motion.div>
+
+    )
   }
 };
 
