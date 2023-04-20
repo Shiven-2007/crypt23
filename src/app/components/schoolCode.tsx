@@ -34,15 +34,15 @@ const schoolCode = (props: {
     };
     return (
       <>
-      <motion.div className="bg-zinc-800 p-3 flex flex-col" drag>
-
+      <motion.div className="bg-zinc-800 p-3 flex flex-col rounded-xl">
+        School Code
         <input
           onChange={change}
           value={code}
-          className="bg-zinc-600 p-3"
+          className="bg-zinc-600 p-3 rounded-sm"
           ></input>
         <button onClick={() => sendData(props.uid!, code)}>submit</button>
-          </motion.div>
+      </motion.div>
       </>
     );
   } else {
