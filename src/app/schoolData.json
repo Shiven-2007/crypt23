@@ -1,0 +1,144 @@
+{
+    "schools": [
+        {
+            "schoolCode": "789342",
+            "schoolName": "Ahlcon Public School, Mayur Vihar"
+        },
+        {
+            "schoolCode": "573219",
+            "schoolName": "Air Force Bal Bharti, Lodhi Road"
+        },
+        {
+            "schoolCode": "942561",
+            "schoolName": "Amity International School, Noida"
+        },
+        {
+            "schoolCode": "575598",
+            "schoolName": "Amity International School, Sector 46 Gurgaon"
+        },
+        {
+            "schoolCode": "859742",
+            "schoolName": "Apeejay School, Panchsheel Park"
+        },
+        {
+            "schoolCode": "627598",
+            "schoolName": "Apeejay School, Noida"
+        },
+        {
+            "schoolCode": "456790",
+            "schoolName": "Army Public School, Noida"
+        },
+        {
+            "schoolCode": "347621",
+            "schoolName": "Bal Bharati Public School, Noida"
+        },
+        {
+            "schoolCode": "987456",
+            "schoolName": "Birla Vidya Niketan"
+        },
+        {
+            "schoolCode": "024142",
+            "schoolName": "Delhi Public School, Sushant Lok"
+        },
+        {
+            "schoolCode": "234678",
+            "schoolName": "Delhi Public School, Sector-45"
+        },
+        {
+            "schoolCode": "987654",
+            "schoolName": "DPS Dwarka"
+        },
+        {
+            "schoolCode": "345678",
+            "schoolName": "DPS Noida"
+        },
+        {
+            "schoolCode": "876543",
+            "schoolName": "DPS R K Puram"
+        },
+        {
+            "schoolCode": "745812",
+            "schoolName": "Indraprastha International School, Dwarka"
+        },
+        {
+            "schoolCode": "865712",
+            "schoolName": "K.R.Mangalam World School, Vikaspuri"
+        },
+        {
+            "schoolCode": "139465",
+            "schoolName": "Mount Carmal School, Dwarka"
+        },
+        {
+            "schoolCode": "987654",
+            "schoolName": "Mount St.Mary's School, Parade Road"
+        },
+        {
+            "schoolCode": "542178",
+            "schoolName": "Navy Children School Delhi"
+        },
+        {
+            "schoolCode": "876543",
+            "schoolName": "Sadhu Vaswani International School for Girls"
+        },
+        {
+            "schoolCode": "321765",
+            "schoolName": "Scottish High International School"
+        },
+        {
+            "schoolCode": "823475",
+            "schoolName": "Springdales School, Pusa Road"
+        },
+        {
+            "schoolCode": "265193",
+            "schoolName": "Sri Venkateshwar International School, Dwarka"
+        },
+        {
+            "schoolCode": "674128",
+            "schoolName": "St Mary's School, Dwarka"
+        },
+        {
+            "schoolCode": "841672",
+            "schoolName": "St. Columba's School"
+        },
+        {
+            "schoolCode": "354218",
+            "schoolName": "St. George's School"
+        },
+        {
+            "schoolCode": "839051",
+            "schoolName": "St. Marks Sr. Sec. Public School, Meera Bagh, New Delhi"
+        },
+        {
+            "schoolCode": "359062",
+            "schoolName": "Step By Step School"
+        },
+        {
+            "schoolCode": "896273",
+            "schoolName": "Summer Fields School, Gurugram"
+        },
+        {
+            "schoolCode": "236724",
+            "schoolName": "Suncity School"
+        },
+        {
+            "schoolCode": "725835",
+            "schoolName": "Tagore International School, East of Kailash"
+        },
+        {
+            "schoolCode": "143165",
+            "schoolName": "Tagore International School, Vasant Vihar"
+        },
+        {
+            "schoolCode": "385067",
+            "schoolName": "The Indian School, Second Shift"
+        },
+        {
+            "schoolCode": "407628",
+            "schoolName": "The Shri Ram School, Moulsari"
+        },
+        {
+            "schoolCode": "794739",
+            "schoolName": "Vasant Valley"
+        }
+    ]
+}
