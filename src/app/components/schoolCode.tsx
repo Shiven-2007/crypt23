@@ -4,19 +4,21 @@ import { motion } from "framer-motion";
 import { VT323 } from "next/font/google";
 import schoolData from "@/app/schoolData.json";
 
+
+
 const VT323Font = VT323({
   subsets: ["latin"],
   weight: "400",
 });
 
-async function sendData(uid: string, schoolcode: string) {
+async function sendData(uid: string, schoolcode: string, setIsSchool: any) {
   const res = await fetch("/schoolCheck", {
     method: "POST",
     body: JSON.stringify({ uid: uid, code: schoolcode }),
   });
   const jsondata = await res.json();
-  if (jsondata) {
-    console.log("yoo");
+  if (jsondata.ok) {
+    setIsSchool(true)
   }
 }
 
@@ -25,14 +27,9 @@ const schoolCode = (props: {
   schoolId: string | undefined;
 }) => {
   const schoolsdata = schoolData;
-  console.log(
-    schoolsdata.schools.find((a) => a.schoolCode == props.schoolId),
-    props.schoolId,
-    "yoooooo"
-  );
-
+  const [isSchool, setIsSchool] = useState( props.schoolId ? true: false)
   if (!props.uid) return <></>;
-  if (!props.schoolId) {
+  else if (!isSchool) {
     const [code, setCode] = useState("");
     const change = (e: any) => {
       const text = e.target.value;
@@ -50,14 +47,14 @@ const schoolCode = (props: {
 
     return (
       <>
-        <motion.div className="flex flex-col rounded-xl bg-zinc-800 p-3">
-          School Code
+        <motion.div className={`flex flex-col rounded-xl bg-zinc-800 p-3 ${VT323Font.className} h-1/6`}>
+        <p className="text-3xl justify-self-center self-center">School Code</p>
           <input
-            onChange={change}
             value={code}
             className="rounded-sm bg-zinc-600 p-3"
+            onChange={change}
           ></input>
-          <button onClick={() => sendData(props.uid!, code)}>submit</button>
+          <button onClick={() => sendData(props.uid!, code, setIsSchool)}>submit</button>
         </motion.div>
       </>
     );
@@ -67,7 +64,7 @@ const schoolCode = (props: {
       <motion.div
         className={`flex flex-col justify-around rounded bg-zinc-900 p-5 ${VT323Font.className} h-1/6`}
       >
-        <p className="text-3xl">School Code</p>
+        <p className="text-3xl justify-self-center self-center">School Code</p>
         <input
           value={code}
           disabled

@@ -4,7 +4,10 @@ import SchoolCode from "./components/schoolCode";
 import { getCurrentUser } from "@/server/auth";
 import Text from "./components/text";
 
+
+
 export default async function Page() {
+  
   const user = await getCurrentUser();
   console.log(user);
   const obj = {

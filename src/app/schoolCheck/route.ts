@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { NextApiResponse, NextApiRequest } from "next";
 import { prisma } from "@/server/db";
 
 const getSchools = async () => {
@@ -7,8 +8,8 @@ const getSchools = async () => {
   return schools;
 };
 
-export async function POST(req: Request) {
-  const { uid, code } = await req.json();
+export async function POST(req: NextApiRequest, res:NextApiResponse) {
+  const { uid, code } = await req.body;
   const schools = await getSchools();
   console.log(uid, code);
   if (schools.some((e) => e.code == code)) {
@@ -25,8 +26,9 @@ export async function POST(req: Request) {
       },
     });
     update;
+  return res.status(200)
   } else {
     console.log("not found");
+    return res.status(500);
   }
-  return NextResponse.json(true);
 }
