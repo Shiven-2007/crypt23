@@ -4,21 +4,26 @@ import { motion } from "framer-motion";
 import { VT323 } from "next/font/google";
 import schoolData from "@/app/schoolData.json";
 
-
-
 const VT323Font = VT323({
   subsets: ["latin"],
   weight: "400",
 });
 
-async function sendData(uid: string, schoolcode: string, setIsSchool: any) {
+async function sendData(
+  uid: string,
+  schoolcode: string,
+  setIsSchoolCode: any,
+  setIsError: any
+) {
   const res = await fetch("/schoolCheck", {
     method: "POST",
     body: JSON.stringify({ uid: uid, code: schoolcode }),
   });
   const jsondata = await res.json();
-  if (jsondata.ok) {
-    setIsSchool(true)
+  if (jsondata.status == "200") {
+    setIsSchoolCode(true);
+  } else {
+    setIsError(true);
   }
 }
 
@@ -27,10 +32,18 @@ const schoolCode = (props: {
   schoolId: string | undefined;
 }) => {
   const schoolsdata = schoolData;
-  const [isSchool, setIsSchool] = useState( props.schoolId ? true: false)
+  console.log(
+    schoolsdata.schools.find((a) => a.schoolCode == props.schoolId),
+    props.schoolId,
+    "yoooooo"
+  );
+  const [isSchoolCode, setIsSchoolCode] = useState(
+    props.schoolId ? true : false
+  );
+  const [isError, setIsError] = useState(false);
+  const [code, setCode] = useState("");
   if (!props.uid) return <></>;
-  else if (!isSchool) {
-    const [code, setCode] = useState("");
+  if (!isSchoolCode) {
     const change = (e: any) => {
       const text = e.target.value;
       const allowedChars = "0123456789";
@@ -47,36 +60,43 @@ const schoolCode = (props: {
 
     return (
       <>
-        <motion.div className={`flex flex-col rounded-xl bg-zinc-800 p-3 ${VT323Font.className} h-1/6`}>
-        <p className="text-3xl justify-self-center self-center">School Code</p>
+        <motion.div className="flex flex-col rounded-xl bg-zinc-800 p-3">
+          School Code
           <input
+            onChange={change}
             value={code}
             className="rounded-sm bg-zinc-600 p-3"
-            onChange={change}
           ></input>
-          <button onClick={() => sendData(props.uid!, code, setIsSchool)}>submit</button>
+          <button
+            onClick={() =>
+              sendData(props.uid!, code, setIsSchoolCode, setIsError)
+            }
+          >
+            submit
+          </button>
+          {isError && <div>School not found</div>}
         </motion.div>
       </>
     );
   } else {
     const code = props.schoolId;
+    const mySchool = schoolsdata.schools
+      .find((a) => a.schoolCode == props.schoolId)
+      ?.schoolName.split(", ");
     return (
       <motion.div
         className={`flex flex-col justify-around rounded bg-zinc-900 p-5 ${VT323Font.className} h-1/6`}
       >
-        <p className="text-3xl justify-self-center self-center">School Code</p>
+        <p className="text-3xl">School Code</p>
         <input
           value={code}
           disabled
           className="bg-neutral-600 p-2 text-lg tracking-widest"
         ></input>
         <div className="w-fit">
-          {schoolsdata.schools
-            .find((a) => a.schoolCode == props.schoolId)
-            ?.schoolName.split(", ")
-            .map((name) => (
-              <div>{name}</div>
-            ))}
+          {mySchool?.map((name, index) => (
+            <div key={index}>{name}</div>
+          ))}
         </div>
       </motion.div>
     );
