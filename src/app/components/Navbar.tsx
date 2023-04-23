@@ -1,5 +1,4 @@
 import { getServerAuthSession, getCurrentUser } from "@/server/auth";
-import Link from "next/link";
 import SignInButton from "./SignInButton";
 import LogoutButton from "./LogoutButton";
 
@@ -10,15 +9,15 @@ export default async function Navbar() {
 
   if (!!session) {
     return (
-      <>
+      <div className="navbar">
         <LogoutButton />
-      </>
+      </div>
     );
   } else {
     return (
-      <>
+      <div className="navbar">
         <SignInButton />
-      </>
+      </div>
     );
   }
 }

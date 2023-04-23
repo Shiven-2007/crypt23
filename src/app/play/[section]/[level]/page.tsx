@@ -5,14 +5,6 @@ import levels from "@/app/leveldat.json";
 
 export default async function Page({ params }: { params: leveldatatype }) {
   const session = await getServerAuthSession();
-  const user = await getCurrentUser();
-  const level = params.level;
-  const section = params.section;
-  const levelData: leveldatatype = {
-    section: section,
-    level: level,
-    branch: user!.branch,
-  };
 
   if (!session) {
     return (
@@ -21,7 +13,16 @@ export default async function Page({ params }: { params: leveldatatype }) {
         <Link href="/">Home</Link>
       </main>
     );
-  } else if (isNaN(Number(level)) || Number(level) > 5) {
+  }
+  const user = await getCurrentUser();
+  const level = params.level;
+  const section = params.section;
+  const levelData: leveldatatype = {
+    section: section,
+    level: level,
+    branch: user!.branch,
+  };
+  if (isNaN(Number(level)) || Number(level) > 5) {
     return <main>Incorrect URL</main>;
   } else if (Number(section) > user!.section) {
     return (
@@ -69,7 +70,6 @@ export default async function Page({ params }: { params: leveldatatype }) {
     };
   }
   const { question: q, comm: h } = getQuestion(levelData);
-  console.log(q, h, levelData);
   return (
     <div className="flex h-full items-center justify-center">
       <Level mainHint={q} commentHint={h} ldata={levelData} />

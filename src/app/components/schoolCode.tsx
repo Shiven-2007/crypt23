@@ -22,6 +22,7 @@ const schoolCode = (props: {
     props.schoolId ? true : false
   );
   const [isError, setIsError] = useState(false);
+  var nschool: string[];
   const [code, setCode] = useState("");
   async function sendData(
     uid: string,
@@ -35,10 +36,11 @@ const schoolCode = (props: {
     });
     const jsondata = await res.json();
     if (jsondata.status == "200") {
+      nschool = schoolsdata.schools
+        .find((a) => a.schoolCode == schoolcode)
+        ?.schoolName.split(", ")!;
+      setIsError(false);
       setIsSchoolCode(true);
-      mySchool = schoolsdata.schools
-        .find((a) => a.schoolCode == props.schoolId)
-        ?.schoolName.split(", ");
     } else {
       setIsError(true);
     }
@@ -60,33 +62,37 @@ const schoolCode = (props: {
     };
 
     return (
-      <>
-        <motion.div className="flex flex-col rounded-xl bg-zinc-800 p-3">
-          School Code
-          <input
-            onChange={change}
-            value={code}
-            className="rounded-sm bg-zinc-600 p-3"
-          ></input>
-          <button
-            onClick={() =>
-              sendData(props.uid!, code, setIsSchoolCode, setIsError)
-            }
-          >
-            submit
-          </button>
-          {isError && <div>School not found</div>}
-        </motion.div>
-      </>
+      <div
+        className={`flex flex-col justify-around rounded bg-zinc-900 p-5 ${VT323Font.className} school`}
+      >
+        <p className="text-3xl">School Code</p>
+        <input
+          onChange={change}
+          value={code}
+          className="rounded-sm bg-zinc-600 p-3"
+        ></input>
+        {isError && <div>School not found</div>}
+        <button
+          onClick={() =>
+            sendData(props.uid!, code, setIsSchoolCode, setIsError)
+          }
+          className="text-tracking-widest rounded-sm bg-zinc-600 p-3 text-2xl"
+        >
+          SUBMIT
+        </button>
+      </div>
     );
   } else {
     const code = props.schoolId;
     function displaySchool() {
-      return mySchool!.map((name, index) => <div key={index}>{name}</div>);
+      return (
+        mySchool?.map((name, index) => <div key={index}>{name}</div>) ??
+        nschool?.map((name, index) => <div key={index}>{name}</div>)
+      );
     }
     return (
-      <motion.div
-        className={`flex flex-col justify-around rounded bg-zinc-900 p-5 ${VT323Font.className} h-1/6`}
+      <div
+        className={`flex flex-col justify-around rounded bg-zinc-900 p-5 ${VT323Font.className} school`}
       >
         <p className="text-3xl">School Code</p>
         <input
@@ -95,7 +101,7 @@ const schoolCode = (props: {
           className="bg-neutral-600 p-2 text-lg tracking-widest"
         ></input>
         <div className="w-fit">{displaySchool()}</div>
-      </motion.div>
+      </div>
     );
   }
 };
