@@ -15,7 +15,7 @@ export default async function Navbar() {
     );
   } else {
     return (
-      <div className="navbar">
+      <div className="midsignin">
         <SignInButton />
       </div>
     );
