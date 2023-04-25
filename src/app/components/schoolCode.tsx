@@ -1,10 +1,10 @@
 "use client";
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { VT323 } from "next/font/google";
+import { Poppins } from "next/font/google";
 import schoolData from "@/app/schoolData.json";
 
-const VT323Font = VT323({
+const VT323Font = Poppins({
   subsets: ["latin"],
   weight: "400",
 });
@@ -63,20 +63,21 @@ const schoolCode = (props: {
 
     return (
       <div
-        className={`flex flex-col justify-around rounded bg-zinc-900 p-5 ${VT323Font.className} school`}
+        className={`flex flex-col justify-around rounded-sm p-5 ${VT323Font.className} school`}
       >
-        <p className="text-3xl">School Code</p>
-        <input
-          onChange={change}
-          value={code}
-          className="rounded-sm bg-zinc-600 p-3"
-        ></input>
+        <div className="school-inp">
+          <input
+            onChange={change}
+            value={code}
+          />
+          <label>School</label>
+        </div>
         {isError && <div>School not found</div>}
         <button
           onClick={() =>
             sendData(props.uid!, code, setIsSchoolCode, setIsError)
           }
-          className="text-tracking-widest rounded-sm bg-zinc-600 p-3 text-2xl"
+          className="school-button"
         >
           SUBMIT
         </button>

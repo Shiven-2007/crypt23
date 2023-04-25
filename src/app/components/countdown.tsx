@@ -1,6 +1,12 @@
 "use client";
-import { headers } from "next/dist/client/components/headers";
 import { useState, useEffect } from "react";
+import { Changa } from "next/font/google"
+import playButton from "/playButton"
+
+const changa = Changa({
+  subsets: ["latin"],
+  weight: ["400"]
+})
 
 const CountDown = () => {
   let useclienttime = false;
@@ -22,7 +28,7 @@ const CountDown = () => {
     realTime();
   }, []);
   let accTime = 0;
-  const [time, setTime] = useState(0);
+  const [time, setTime] = useState(-5);
   useEffect(() => {
     const timer = setInterval(() => {
       if (!useclienttime) {
@@ -34,8 +40,12 @@ const CountDown = () => {
     }, 1000);
     return () => clearInterval(timer);
   }, []);
-  return time != 0 ? (
-    <div className="t2 flex">
+  if (time==0){
+    return(<div>sheesh</div>)
+  }
+
+  return time !> 0 ? (
+    <div className={`t2 ${changa.className}` }>
       <div className="t1">
         <div className="time">{Math.floor(time / 86400000)}</div> <p>DAYS</p>
       </div>
@@ -53,7 +63,7 @@ const CountDown = () => {
       </div>
     </div>
   ) : (
-    <div className="t2 flex">
+    <div className={`t2 ${changa.className}` }>
       <div className="t1">
         <div className="time">-</div> <p>DAYS</p>
       </div>

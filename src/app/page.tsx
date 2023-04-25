@@ -15,7 +15,7 @@ export default async function Page() {
     <div className="hpage  h-full w-full bg-black text-white">
       {/* @ts-expect-error Async Server Component */}
       <Navbar />
-      <Text str="CRYPT@TRIX" />
+      <Text str="CRYPT@TRIX"/>
       <SchoolCode {...obj} />
       <Countdown />
     </div>

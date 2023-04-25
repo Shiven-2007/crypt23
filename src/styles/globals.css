@@ -14,24 +14,40 @@ html {
   align-items: center;
   width: 5em;
   height: 6em;
-  @apply rounded-lg bg-zinc-900;
+  padding: 0px 10px;
+  position: relative;
 }
 
+
+
 .t2 {
-  grid-row: 2 / span 1;
-  grid-column: 2 / span 1;
+  grid-row: 3/5;
+  grid-column: 2 / 3;
   margin-right: auto;
   margin-left: auto;
   justify-self: center;
   align-self: center;
   width: clamp(360px, 80%, 400px);
-  justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+  gap: 1.5em;
+}
+
+.t1:not(:last-child):after{
+  content: ":";
+  color: white;
+  top: 50%;
+  transform: translate(+150%,-55%);
+  
+  right:0px;
+  position:absolute;
+  font-size: 2.5em;
 }
 
 .hpage {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 2fr) 2fr 2fr;
   grid-column-gap: 2em;
   grid-row-gap: 2em;
 }
@@ -44,6 +60,7 @@ html {
   justify-self: center;
   align-self: center;
   filter: drop-shadow(0 1px 3px);
+  font-size: 4em;
 }
 
 .layers {
@@ -399,12 +416,30 @@ html {
 }
 
 .school {
-  grid-row: 2/3;
-  grid-column: 1/2;
+  grid-row: 2/4;
+  grid-column: 2/3;
   height: 20em;
   width: 15em;
   margin-left: auto;
   margin-right: auto;
+}
+
+.school-inp{
+  position: relative;
+}
+
+.school-inp input{
+  padding: 14px 16px 0 10px;
+  outline: 0;
+  border: 1px solid #ddd;
+}
+
+.school-inp label{
+  position: absolute;
+  transform-origin: top left;
+  line-height: 1;
+  top:0;
+  left: 0;
 }
 
 .time {
@@ -429,14 +464,16 @@ html {
   z-index: 1;
   letter-spacing: 2px;
   grid-column: 2/3;
-  grid-row: 2/3;
+  grid-row: 2/4;
+  justify-self: center;
+  align-self: center;
 }
 
 .signin:hover {
-  background: rgb(26, 182, 39);
+  background: rgb(184, 25, 25);
   letter-spacing: 4px;
-  box-shadow: 0 0 35px rgb(26, 182, 39);
-  color: rgb(26, 182, 39);
+  box-shadow: 0 0 35px rgb(184, 25, 25);
+  color: rgb(184, 25, 25);
 }
 
 .signin::before {
@@ -458,9 +495,9 @@ html {
 }
 
 .midsignin {
-  grid-row: 2/3;
+  grid-row: 2/4;
   grid-column: 2/3;
-  height: 5em;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;

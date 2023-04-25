@@ -36,7 +36,7 @@ const text = ({ str }: { str: string }) => {
   return (
     <div
       onMouseOver={() => randtxt(txt, setTxt, ogTxt)}
-      className={`txt layers hero glitch w-fit text-6xl`}
+      className={`txt layers hero glitch w-fit`}
       data-text={txt}
       style={AnonymousPro.style}
     >
