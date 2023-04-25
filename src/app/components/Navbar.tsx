@@ -1,6 +1,7 @@
 import { getServerAuthSession, getCurrentUser } from "@/server/auth";
 import SignInButton from "./SignInButton";
 import LogoutButton from "./LogoutButton";
+import Link from "next/link";
 
 export default async function Navbar() {
   const session = await getServerAuthSession();
@@ -10,6 +11,9 @@ export default async function Navbar() {
   if (!!session) {
     return (
       <div className="navbar">
+        <Link href={"/leaderboard"} className="nav-item">
+          Leaderboard
+        </Link>
         <LogoutButton />
       </div>
     );

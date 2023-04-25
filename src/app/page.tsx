@@ -7,16 +7,12 @@ import Countdown from "./components/countdown";
 
 export default async function Page() {
   const user = await getCurrentUser();
-  const obj = {
-    uid: user?.id,
-    schoolId: user?.school_id,
-  };
   return (
     <div className="hpage  h-full w-full bg-black text-white">
       {/* @ts-expect-error Async Server Component */}
       <Navbar />
-      <Text str="CRYPT@TRIX"/>
-      <SchoolCode {...obj} />
+      <Text str="CRYPT@TRIX" />
+      <SchoolCode user={user} />
       <Countdown />
     </div>
   );

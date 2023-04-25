@@ -5,6 +5,7 @@
 html {
   width: 100%;
   height: 100%;
+  --glowcolor: #1bc7fb;
 }
 
 .t1 {
@@ -18,10 +19,8 @@ html {
   position: relative;
 }
 
-
-
 .t2 {
-  grid-row: 3/5;
+  grid-row: 4/6;
   grid-column: 2 / 3;
   margin-right: auto;
   margin-left: auto;
@@ -33,21 +32,21 @@ html {
   gap: 1.5em;
 }
 
-.t1:not(:last-child):after{
+.t1:not(:last-child):after {
   content: ":";
   color: white;
   top: 50%;
-  transform: translate(+150%,-55%);
-  
-  right:0px;
-  position:absolute;
+  transform: translate(+150%, -55%);
+
+  right: 0px;
+  position: absolute;
   font-size: 2.5em;
 }
 
 .hpage {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, 2fr) 2fr 2fr;
+  grid-template-rows: 1fr repeat(2, 2fr) 2fr 2fr;
   grid-column-gap: 2em;
   grid-row-gap: 2em;
 }
@@ -55,7 +54,7 @@ html {
 .txt {
   margin-left: auto;
   margin-right: auto;
-  grid-row: 1/2;
+  grid-row: 2/3;
   grid-column: 2/3;
   justify-self: center;
   align-self: center;
@@ -416,30 +415,90 @@ html {
 }
 
 .school {
-  grid-row: 2/4;
+  grid-row: 3/5;
   grid-column: 2/3;
-  height: 20em;
-  width: 15em;
+  width: 100%;
+  height: 80%;
   margin-left: auto;
   margin-right: auto;
-}
-
-.school-inp{
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(3, 1fr);
+  place-items: center;
   position: relative;
 }
 
-.school-inp input{
-  padding: 14px 16px 0 10px;
-  outline: 0;
-  border: 1px solid #ddd;
+.school-inp {
+  height: 55px;
+  display: flex;
+  border-radius: 0.5em;
+  transition: 0.5s;
+  grid-row: 1/4;
 }
 
-.school-inp label{
+.school-inp input {
+  padding: 14px 16px;
+  outline: 0;
+  border: 1px solid #ffffff;
+  background-color: black;
+  width: 15ch;
+  border-radius: 0.5em 0 0 0.5em;
+  height: 100%;
+  transition: 0.5s;
+}
+
+.school-inp:hover {
+  box-shadow: 0 0 35px var(--glowcolor);
+}
+
+.school-inp-active {
+  box-shadow: 0 0 35px var(--glowcolor);
+}
+
+.school-inp input:hover {
+  border: 1px solid var(--glowcolor);
+}
+
+.school-inp input:active {
+  border: 1px solid var(--glowcolor);
+}
+
+.school-button {
+  height: 100%;
+  background: white;
+  padding: 0.5em 0.5em 0.5em 0.5em;
+  display: grid;
+  place-items: center;
+  border-radius: 0 0.5em 0.5em 0;
+  border: 1px solid #ffffff;
+  transition: 0.5s;
+  position: relative;
+  z-index: 1;
+}
+
+.school-button:hover {
+  border: var(--glowcolor) 1px solid;
+  background: var(--glowcolor);
+  color: var(--glowcolor);
+}
+
+.school-button::before {
+  content: " ";
   position: absolute;
-  transform-origin: top left;
-  line-height: 1;
-  top:0;
-  left: 0;
+  inset: 1px;
+  border-radius: 0 0.5em 0.5em 0;
+  z-index: -1;
+  background: #000000;
+  letter-spacing: 0.25em;
+}
+
+.school-error {
+  color: red;
+  font-size: 0.8em;
+  grid-row: 2/4;
+  text-align: center;
+  grid-column: 1/2;
+  position: absolute;
 }
 
 .time {
@@ -463,8 +522,6 @@ html {
   transition: 0.5s;
   z-index: 1;
   letter-spacing: 2px;
-  grid-column: 2/3;
-  grid-row: 2/4;
   justify-self: center;
   align-self: center;
 }
@@ -495,10 +552,33 @@ html {
 }
 
 .midsignin {
-  grid-row: 2/4;
+  grid-row: 1/6;
   grid-column: 2/3;
-  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.nav-item {
+  position: relative;
+  padding: 0.5em 1em;
+  font-size: 1em;
+}
+
+.nav-item::after {
+  content: " ";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 4px;
+  bottom: -5px;
+  left: 0;
+  background-color: red;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+  box-shadow: 0 0 1px red;
+}
+.nav-item:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
 }
