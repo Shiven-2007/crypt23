@@ -4,7 +4,7 @@ import { signIn } from "next-auth/react";
 const SignInButton = () => {
   return (
     <button
-      onClick={async () => await signIn()}
+      onClick={async () => await signIn("discord")}
       className="signin"
       type="button"
     >
