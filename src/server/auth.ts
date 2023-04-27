@@ -88,6 +88,7 @@ export const authOptions: NextAuthOptions = {
       }
     },
   },
+  useSecureCookies: false,
 };
 
 /**
