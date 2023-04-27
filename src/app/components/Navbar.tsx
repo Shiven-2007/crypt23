@@ -13,7 +13,6 @@ export default async function Navbar() {
   const session = await getServerAuthSession();
 
   const user = await getCurrentUser();
-
   if (!!session) {
     return (
       <div className={"navbar " + poppins.className}>
