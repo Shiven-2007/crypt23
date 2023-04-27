@@ -11,7 +11,7 @@ const poppins = f1({
 
 export default async function Navbar() {
   const session = await getServerAuthSession();
-
+  console.log(process.env.NEXTAUTH_URL);
   const user = await getCurrentUser();
   if (!!session) {
     return (

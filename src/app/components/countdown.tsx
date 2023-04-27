@@ -9,7 +9,6 @@ const changa = Changa({
 });
 
 const CountDown = () => {
-  console.log(process.env.NEXTAUTH_URL);
   let useclienttime = false;
   const endTime = new Date("2023-04-29T00:00:00");
   useEffect(() => {
