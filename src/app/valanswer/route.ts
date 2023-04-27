@@ -26,7 +26,7 @@ export async function POST(req: Request) {
           connect: { id: user!.id },
         },
         school: {
-          connect: { id: user!.school_id },
+          connect: { code: user!.school_id },
         },
         branch: user!.branch,
         level: user!.level,

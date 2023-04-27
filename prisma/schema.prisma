@@ -52,7 +52,6 @@ model School {
     updatedAt DateTime  @updatedAt
     code      String    @id @unique
     Attempt   Attempt[]
-    score     Int       @default(0)
 }
 
 model User {
@@ -69,6 +68,7 @@ model User {
     section       Int       @default(1)
     branch        String?
     level         Int       @default(1)
+    score         Int       @default(0)
 
     @@index([school_id])
 }

@@ -1,144 +1,132 @@
 {
     "schools": [
         {
-            "schoolCode": "789342",
-            "schoolName": "Ahlcon Public School, Mayur Vihar"
+            "schoolCode": "561598",
+            "schoolName": "AHLCON PUBLIC SCHOOL"
         },
         {
-            "schoolCode": "573219",
-            "schoolName": "Air Force Bal Bharti, Lodhi Road"
+            "schoolCode": "825265",
+            "schoolName": "Air Force Bal Bharti"
         },
         {
-            "schoolCode": "942561",
-            "schoolName": "Amity International School, Noida"
+            "schoolCode": "704944",
+            "schoolName": "Amity International School Mayur Vihar"
         },
         {
-            "schoolCode": "575598",
+            "schoolCode": "737267",
+            "schoolName": "Amity International School Noida"
+        },
+        {
+            "schoolCode": "081947",
             "schoolName": "Amity International School, Sector 46 Gurgaon"
         },
         {
-            "schoolCode": "859742",
-            "schoolName": "Apeejay School, Panchsheel Park"
+            "schoolCode": "911277",
+            "schoolName": "Apeejay School Panchsheel Park"
         },
         {
-            "schoolCode": "627598",
-            "schoolName": "Apeejay School, Noida"
+            "schoolCode": "082600",
+            "schoolName": "Apeejay school,Noida"
         },
         {
-            "schoolCode": "456790",
-            "schoolName": "Army Public School, Noida"
+            "schoolCode": "949163",
+            "schoolName": "ARMY PUBLIC SCHOOL NOIDA"
         },
         {
-            "schoolCode": "347621",
-            "schoolName": "Bal Bharati Public School, Noida"
-        },
-        {
-            "schoolCode": "987456",
+            "schoolCode": "991590",
             "schoolName": "Birla Vidya Niketan"
         },
         {
-            "schoolCode": "024142",
-            "schoolName": "Delhi Public School, Sushant Lok"
+            "schoolCode": "246389",
+            "schoolName": "Delhi Public School Rohini"
         },
         {
-            "schoolCode": "234678",
-            "schoolName": "Delhi Public School, Sector-45"
+            "schoolCode": "875389",
+            "schoolName": "Delhi Public School Sushant Lok"
         },
         {
-            "schoolCode": "987654",
-            "schoolName": "DPS Dwarka"
+            "schoolCode": "957293",
+            "schoolName": "Delhi Public School,Sector-45"
         },
         {
-            "schoolCode": "345678",
+            "schoolCode": "549314",
             "schoolName": "DPS Noida"
         },
         {
-            "schoolCode": "876543",
+            "schoolCode": "194655",
             "schoolName": "DPS R K Puram"
         },
         {
-            "schoolCode": "745812",
-            "schoolName": "Indraprastha International School, Dwarka"
+            "schoolCode": "797995",
+            "schoolName": "KR Mangalam World School Greater Noida"
         },
         {
-            "schoolCode": "865712",
-            "schoolName": "K.R.Mangalam World School, Vikaspuri"
+            "schoolCode": "783203",
+            "schoolName": "Lotus Valley School, Gurgaon"
         },
         {
-            "schoolCode": "139465",
-            "schoolName": "Mount Carmal School, Dwarka"
+            "schoolCode": "892656",
+            "schoolName": "Mount St.Mary's School"
         },
         {
-            "schoolCode": "987654",
-            "schoolName": "Mount St.Mary's School, Parade Road"
-        },
-        {
-            "schoolCode": "542178",
+            "schoolCode": "555163",
             "schoolName": "Navy Children School Delhi"
         },
         {
-            "schoolCode": "876543",
-            "schoolName": "Sadhu Vaswani International School for Girls"
+            "schoolCode": "372028",
+            "schoolName": "Nirmal Bhartia School"
         },
         {
-            "schoolCode": "321765",
+            "schoolCode": "726827",
             "schoolName": "Scottish High International School"
         },
         {
-            "schoolCode": "823475",
-            "schoolName": "Springdales School, Pusa Road"
+            "schoolCode": "666688",
+            "schoolName": "SRI VENKATESHWAR INTERNATIONAL SCHOOL"
         },
         {
-            "schoolCode": "265193",
-            "schoolName": "Sri Venkateshwar International School, Dwarka"
+            "schoolCode": "661879",
+            "schoolName": "ST. GEORGE'S SCHOOL"
         },
         {
-            "schoolCode": "674128",
-            "schoolName": "St Mary's School, Dwarka"
+            "schoolCode": "945714",
+            "schoolName": "St. Mark's Sr. Sec. Public School, Janakpuri"
         },
         {
-            "schoolCode": "841672",
-            "schoolName": "St. Columba's School"
-        },
-        {
-            "schoolCode": "354218",
-            "schoolName": "St. George's School"
-        },
-        {
-            "schoolCode": "839051",
+            "schoolCode": "879335",
             "schoolName": "St. Marks Sr. Sec. Public School, Meera Bagh, New Delhi"
         },
         {
-            "schoolCode": "359062",
-            "schoolName": "Step By Step School"
+            "schoolCode": "611607",
+            "schoolName": "St. Mary's Public school"
         },
         {
-            "schoolCode": "896273",
-            "schoolName": "Summer Fields School, Gurugram"
+            "schoolCode": "150476",
+            "schoolName": "St. Mary's School"
         },
         {
-            "schoolCode": "236724",
-            "schoolName": "Suncity School"
+            "schoolCode": "890123",
+            "schoolName": "Summer Fields School"
         },
         {
-            "schoolCode": "725835",
-            "schoolName": "Tagore International School, East of Kailash"
+            "schoolCode": "123456",
+            "schoolName": "Suncity school sector 54"
         },
         {
-            "schoolCode": "143165",
-            "schoolName": "Tagore International School, Vasant Vihar"
+            "schoolCode": "456789",
+            "schoolName": "Tagore International School East of Kailash"
         },
         {
-            "schoolCode": "385067",
-            "schoolName": "The Indian School, Second Shift"
+            "schoolCode": "567890",
+            "schoolName": "THE INDIAN SCHOOL"
         },
         {
-            "schoolCode": "407628",
+            "schoolCode": "678901",
             "schoolName": "The Shri Ram School, Moulsari"
         },
         {
-            "schoolCode": "794739",
-            "schoolName": "Vasant Valley"
+            "schoolCode": "901234",
+            "schoolName": "Indraprastha International School, Dwarka"
         }
     ]
 }
