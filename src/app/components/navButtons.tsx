@@ -2,37 +2,19 @@
 import { useRouter } from "next/navigation";
 
 interface Props {
-  levelData: leveldatatype;
   status: boolean;
-  fn: any;
-  fn2: any;
+  setStatus: any;
+  redUrl: string;
 }
 
-const NextButton = ({
-  levelData: { section, level, branch },
-  status,
-  fn,
-  fn2,
-}: Props) => {
+const NextButton = ({ redUrl, status, setStatus }: Props) => {
   const router = useRouter();
   if (status == true) {
-    let redUrl = `play/${section}/${parseInt(level) + 1}`;
-    if (branch == "d") {
-      if (level == "5") {
-        redUrl = `play/${parseInt(section) + 1}/1`;
-      } else {
-        redUrl = `play/${section}/${parseInt(level) + 1}`;
-      }
-    }
-    if (branch != "d") {
-      redUrl = `play/${section}/${level}`;
-    }
     return (
       <button
         onClick={(e) => {
           router.push(redUrl);
-          fn("");
-          fn2("false");
+          setStatus("");
         }}
       >
         NEXT LEVEL

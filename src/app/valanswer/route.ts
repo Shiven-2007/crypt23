@@ -5,19 +5,16 @@ import { getCurrentUser } from "@/server/auth";
 
 export async function POST(req: Request) {
   const ans = await req.json();
-  async function checkAnswer(
-    levelData: leveldatatype,
-    userAnswer: string
-  ): Promise<boolean> {
+  async function checkAnswer(levelData: leveldatatype, userAnswer: string) {
+    let levelpath: number = parseInt(levelData.level);
+    let suspectpath: number = parseInt(levelData.suspect);
     const answer = answerData.answers.find(
       (a) =>
-        a.sectionNumber == levelData.section &&
-        a.levelNumber == levelData.level &&
-        a.branchName == levelData.branch
+        a.suspectNumber == levelData.suspect && a.levelNumber == levelData.level
     );
 
     const user = await getCurrentUser();
-    const branches = ["a", "b", "c"];
+    const branches = [1, 2, 3];
     console.log("yoyo", answer?.answer, userAnswer);
     console.log("shee", user?.school_id);
     const addAttempt = await prisma.attempt.create({
@@ -28,54 +25,44 @@ export async function POST(req: Request) {
         school: {
           connect: { code: user!.school_id },
         },
-        branch: user!.branch,
         level: user!.level,
-        section: user!.section,
+        suspect: user!.suspect,
         userAttempt: userAnswer,
       },
     });
     addAttempt;
     if (answer!.answer.indexOf(userAnswer) != -1) {
-      if (levelData.branch != "d") {
-        const updateUser = await prisma.user.update({
-          where: {
-            id: user!.id,
-          },
-          data: {
-            branch: "d",
-          },
-        });
-        updateUser;
-      } else if (levelData.branch == "d") {
+      if (parseInt(levelData.suspect) % 4 != 0) {
+        suspectpath = Math.ceil(parseInt(levelData.suspect) / 4) * 4;
+      } else if (parseInt(levelData.suspect) % 4 == 0) {
         if (levelData.level == "5") {
-          const updateUser = await prisma.user.update({
-            where: {
-              id: user!.id,
-            },
-            data: {
-              level: 1,
-              section: parseInt(levelData.section) + 1,
-              branch: branches[answer!.answer.indexOf(userAnswer)],
-            },
-          });
-          updateUser;
+          levelpath = 1;
+          suspectpath =
+            parseInt(levelData.suspect) +
+            answer!.answer.indexOf(userAnswer) +
+            1;
         } else {
-          const updateUser = await prisma.user.update({
-            where: {
-              id: user!.id,
-            },
-            data: {
-              level: parseInt(levelData.level) + 1,
-              branch: branches[answer!.answer.indexOf(userAnswer)],
-            },
-          });
-          updateUser;
+          levelpath = parseInt(levelData.level) + 1;
         }
       }
-      return true;
+      const updateUser = await prisma.user.update({
+        where: {
+          id: user!.id,
+        },
+        data: {
+          level: levelpath,
+          suspect: suspectpath,
+        },
+      });
+      updateUser;
+      return NextResponse.json({
+        status: "200",
+        redUrl: `/play/${suspectpath}/${levelpath}`,
+      });
     } else {
-      return false;
+      return NextResponse.json({ status: "400" });
     }
   }
-  return NextResponse.json(await checkAnswer(ans.path, ans.answer));
+
+  checkAnswer(ans.levelData, ans.userAnswer);
 }

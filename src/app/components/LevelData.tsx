@@ -13,7 +13,9 @@ const HtmlComment = ({ text }: { text: string }) => {
   return <span dangerouslySetInnerHTML={{ __html: `<!-- ${text} -->` }} />;
 };
 const Level = ({ mainHint, commentHint, ldata, img }: propType) => {
+  const myUrl = useRef("");
   const [inputVal, setInputVal] = useState("");
+  const [status, setStatus] = useState(false);
   const allowedChars = "abcdefghijklmnopqrstuvwxyz1234567890";
   const change = (e: any) => {
     const text = e.target.value.toLowerCase();
@@ -38,7 +40,10 @@ const Level = ({ mainHint, commentHint, ldata, img }: propType) => {
         method: "POST",
         body: JSON.stringify({ answer: answer, path: ldata }),
       });
-      const val = await data.json();
+      const { status, redUrl } = await data.json();
+      if (status === "true") {
+        myUrl.current = redUrl;
+      }
     }
   }
   return (
@@ -54,6 +59,11 @@ const Level = ({ mainHint, commentHint, ldata, img }: propType) => {
         <input onChange={change} value={inputVal} onKeyDown={keyDown} />
       </div>
       <button onClick={() => sendAnswer(inputVal)}>Submit</button>
+      <NextButton
+        redUrl={myUrl.current}
+        status={status}
+        setStatus={setStatus}
+      />
     </div>
   );
 };

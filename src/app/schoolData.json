@@ -131,6 +131,14 @@
         {
             "schoolCode": "134665",
             "schoolName": "Pyrotech"
+        },
+        {
+            "schoolCode": "681316",
+            "schoolName": "DPS Dwarka"
+        },
+        {
+            "schoolCode": "248203",
+            "schoolName": "NON-COMPETITIVE"
         }
     ]
 }

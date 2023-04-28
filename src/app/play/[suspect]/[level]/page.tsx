@@ -24,7 +24,7 @@ export default async function Page({ params }: { params: leveldatatype }) {
 
   interface questionResult {
     question: string;
-    comm: string;
+    comm: string | null;
     image: string | null;
   }
 

@@ -65,7 +65,7 @@ model User {
     accounts      Account[]
     sessions      Session[]
     attempts      Attempt[]
-    suspect       Int
+    suspect       Int       @default(0)
     level         Int       @default(1)
     score         Int       @default(0)
 
