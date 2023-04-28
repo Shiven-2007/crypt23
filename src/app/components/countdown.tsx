@@ -8,9 +8,9 @@ const changa = Changa({
   weight: ["400"],
 });
 
-const CountDown = () => {
+const CountDown = (props: any) => {
   let useclienttime = false;
-  const endTime = new Date("2023-04-29T01:30:00");
+  const endTime = new Date("2023-04-29T03:00:00");
   useEffect(() => {
     async function realTime() {
       const currtime = Date.now();
@@ -42,7 +42,7 @@ const CountDown = () => {
     return () => clearInterval(timer);
   }, []);
   if (time <= 0) {
-    return <PlayButton />;
+    return <PlayButton user={props.user} />;
   }
 
   return time > 1 ? (

@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import { useRef, useState } from "react";
 import NextButton from "@/app/components/navButtons";
 import Image from "next/image";
+import { send } from "process";
 interface propType {
   mainHint: string;
   commentHint: string | null;
@@ -48,23 +49,56 @@ const Level = ({ mainHint, commentHint, ldata, img }: propType) => {
     }
   }
   return (
-    <div className="flex h-80 w-72 flex-col items-center justify-center gap-1 rounded-lg bg-slate-800">
-      <div className="flex h-32 w-40 items-center justify-center rounded-2xl bg-slate-500">
-        {commentHint !== null && <HtmlComment text={commentHint} />}
-        {mainHint}
-        {img !== null && (
-          <Image src={img} alt="image" width={100} height={100} />
-        )}
+    <div className="flex h-4/5 w-3/5 flex-col justify-center gap-6 bg-white/10 p-4 text-white">
+      <div className="flex flex-row justify-center gap-8">
+        <div className="h-48 w-48 rounded-sm bg-black">
+          <Image
+            src="https://cdn.discordapp.com/attachments/868016961425145856/1101551770724999238/resourceperson.png"
+            className="h-full w-full"
+            alt="crazy"
+            width={300}
+            height={300}
+          />
+        </div>
+        <div className="flex w-3/5 flex-col overflow-scroll overflow-x-hidden rounded-2xl bg-black p-4">
+          {commentHint !== null && <HtmlComment text={commentHint} />}
+          {mainHint}
+          {img !== null && img !== "" && (
+            <Image src={img} alt="image" width={300} height={300} />
+          )}
+        </div>
       </div>
-      <div className="flex h-28 w-52 items-center justify-center rounded-2xl bg-slate-500">
-        <input onChange={change} value={inputVal} onKeyDown={keyDown} />
+      <div className="flex flex-row justify-center gap-8">
+        <div className="h-48 w-48 rounded-sm bg-black">
+          <Image
+            src="https://cdn.discordapp.com/attachments/868016961425145856/1101551788844396734/detective.png"
+            className="h-full w-full"
+            alt="crazy"
+            width={300}
+            height={300}
+          />
+        </div>
+        <div className="flex w-3/5 flex-col justify-start gap-6">
+          <div className="h-24 w-full rounded-2xl bg-black">
+            <input
+              className="h-full w-full bg-transparent text-center outline-none"
+              value={inputVal}
+              onChange={change}
+            />
+          </div>
+          <button
+            className="rounded-full bg-red-800 p-3 px-20 transition ease-in-out hover:bg-red-700"
+            onClick={() => sendAnswer(inputVal)}
+          >
+            Submit
+          </button>
+          <NextButton
+            redUrl={myUrl.current}
+            status={status}
+            setStatus={setStatus}
+          />
+        </div>
       </div>
-      <button onClick={() => sendAnswer(inputVal)}>Submit</button>
-      <NextButton
-        redUrl={myUrl.current}
-        status={status}
-        setStatus={setStatus}
-      />
     </div>
   );
 };

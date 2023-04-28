@@ -640,13 +640,17 @@ html {
 }
 
 .leaderboard {
-  display: grid;
-  grid-template-columns: 5fr 1fr;
-  grid-template-rows: 1fr;
+  display: flex;
+  flex-direction: column;
+
   height: 100%;
   width: 100%;
   background-color: black;
   color: white;
+}
+
+.leaderboard-work:last-child {
+  border-bottom: 2px solid white;
 }
 
 .playbtn-container {

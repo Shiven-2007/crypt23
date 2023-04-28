@@ -33,17 +33,18 @@ export async function POST(req: Request) {
     });
     addAttempt;
     if (answer!.answer.indexOf(userAnswer) != -1) {
-      if (parseInt(levelData.suspect) % 4 != 0) {
-        suspectpath = Math.ceil(parseInt(levelData.suspect) / 4) * 4;
-      } else if (parseInt(levelData.suspect) % 4 == 0) {
-        if (levelData.level == "5") {
+      if (levelData.level != "5") {
+        levelpath = parseInt(levelData.level) + 1;
+      } else if (levelData.level == "5") {
+        if (levelData.suspect != "4") {
+          levelpath = 1;
+          suspectpath = Math.ceil(parseInt(levelData.suspect) / 4) * 4;
+        } else if (levelData.suspect == "4") {
           levelpath = 1;
           suspectpath =
-            parseInt(levelData.suspect) +
             answer!.answer.indexOf(userAnswer) +
-            1;
-        } else {
-          levelpath = parseInt(levelData.level) + 1;
+            1 +
+            parseInt(levelData.suspect);
         }
       }
       const updateUser = await prisma.user.update({
@@ -53,6 +54,7 @@ export async function POST(req: Request) {
         data: {
           level: levelpath,
           suspect: suspectpath,
+          score: user!.score + 50,
         },
       });
       updateUser;

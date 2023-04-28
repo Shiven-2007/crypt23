@@ -15,6 +15,9 @@ export default async function Navbar() {
   if (!!session) {
     return (
       <div className={"navbar " + poppins.className}>
+        <Link href="/leaderboard" className="nav-item">
+          Leaderboard
+        </Link>
         <LogoutButton />
       </div>
     );

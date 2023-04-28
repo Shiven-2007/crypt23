@@ -6,10 +6,15 @@ const poppins = Poppins({
   subsets: ["latin"],
   weight: ["400"],
 });
-const playButton = () => {
+
+const playButton = (props: any) => {
+  const user = props.user;
   return (
     <div className="playbtn-container">
-      <Link href="/play" className={"playbtn " + poppins.className}>
+      <Link
+        href={`/play/${user?.suspect}/${user?.level}`}
+        className={"playbtn " + poppins.className}
+      >
         PLAY
       </Link>
     </div>

@@ -14,7 +14,7 @@ export default async function Page() {
       <Navbar />
       <Text str="CRYPT@TRIX" />
       {user ? <SchoolCode user={user} /> : <></>}
-      <Countdown />
+      <Countdown user={user} />
       <Bg />
     </div>
   );

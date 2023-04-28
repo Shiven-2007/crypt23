@@ -13,6 +13,23 @@ export default async function Page({ params }: { params: leveldatatype }) {
         <Link href="/">Home</Link>
       </main>
     );
+  } else if (!session.user.school_id) {
+    return (
+      <main>
+        School code not set
+        <Link href="/">Home</Link>
+      </main>
+    );
+  } else if (
+    session.user.level != parseInt(params.level) ||
+    session.user.suspect != parseInt(params.suspect)
+  ) {
+    return (
+      <main>
+        You are not on this level
+        <Link href="/">Home</Link>
+      </main>
+    );
   }
   const user = await getCurrentUser();
   const level = params.level;
@@ -51,7 +68,7 @@ export default async function Page({ params }: { params: leveldatatype }) {
   }
   const { question: q, comm: h, image: i } = getQuestion(levelData);
   return (
-    <div className="flex h-full items-center justify-center">
+    <div className="flex h-full items-center justify-center bg-black">
       <Level mainHint={q} commentHint={h} ldata={levelData} img={i} />
     </div>
   );

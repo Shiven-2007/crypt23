@@ -1,6 +1,34 @@
 {
-    "link":[{
-        "linkName":"trickastleyed",
-        "res":"nugget said"
-    }]
+    "link": [
+        {
+            "linkName": "backgroundcheck",
+            "password": null,
+            "res": "https://www.youtube.com/watch?v=sXWjwUl949Y,  ⠣⠳⠲⠫⠩⠻⠱⠫⠱⠻⠩⠻⠣⠡⠪⠣⠡⠂ ⠻⠻⠲⠡⠳⠣⠹⠻⠣⠫⠳⠩⠱⠻⠣⠻⠩ "
+        },
+        {
+            "linkName": "EVEREST",
+            "password": null,
+            "res": "https://pastebin.com/Yxc5thnH"
+        },
+        {
+            "linkName": "jarjar",
+            "password": null,
+            "res": "MeSa tEll Yousa a clue. YousA needs to visit mesa homeworld."
+        },
+        {
+            "linkName": "seya",
+            "password": null,
+            "res": "WjD5UDcf"
+        },
+        {
+            "linkName": "simprint",
+            "password": null,
+            "res": "AtKMEoS"
+        },
+        {
+            "linkName": "simratwasframed",
+            "password": null,
+            "res": "if this level you want to traverse, i think you should go in reverse."
+        }
+    ]
 }

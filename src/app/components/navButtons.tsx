@@ -16,6 +16,7 @@ const NextButton = ({ redUrl, status, setStatus }: Props) => {
           router.push(redUrl);
           setStatus("");
         }}
+        className="w-24 bg-white text-black"
       >
         NEXT LEVEL
       </button>
