@@ -7,12 +7,12 @@ const foont = Fooont({ subsets: ["latin"], weight: ["500"] });
 const getData = async () => {
   const users = await prisma.user.groupBy({
     by: ["school_id"],
-    _avg: {
+    _max: {
       score: true,
     },
     orderBy: [
       {
-        _avg: {
+        _max: {
           score: "desc",
         },
       },
@@ -40,7 +40,7 @@ export default async function Page() {
                   ?.schoolName
               }
             </div>
-            <div className="px-5">{school._avg.score}</div>
+            <div className="px-5">{school._max.score}</div>
           </div>
         ))}
       </div>
