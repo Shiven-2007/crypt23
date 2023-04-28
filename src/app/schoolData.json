@@ -127,6 +127,10 @@
         {
             "schoolCode": "901234",
             "schoolName": "Indraprastha International School, Dwarka"
+        },
+        {
+            "schoolCode": "134665",
+            "schoolName": "Pyrotech"
         }
     ]
 }

@@ -1,17 +1,19 @@
 "use client";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import NextButton from "@/app/components/navButtons";
-
+import Image from "next/image";
 interface propType {
   mainHint: string;
-  commentHint: string;
+  commentHint: string | null;
   ldata: leveldatatype;
+  img: string | null;
 }
-
-const Level = ({ mainHint, commentHint, ldata }: propType) => {
-  const [val, setVal] = useState("");
-  const [statusNext, setStatusNext] = useState(false);
+const HtmlComment = ({ text }: { text: string }) => {
+  return <span dangerouslySetInnerHTML={{ __html: `<!-- ${text} -->` }} />;
+};
+const Level = ({ mainHint, commentHint, ldata, img }: propType) => {
+  const [inputVal, setInputVal] = useState("");
   const allowedChars = "abcdefghijklmnopqrstuvwxyz1234567890";
   const change = (e: any) => {
     const text = e.target.value.toLowerCase();
@@ -22,12 +24,12 @@ const Level = ({ mainHint, commentHint, ldata }: propType) => {
       }
     }
     if (status) {
-      setVal(text);
+      setInputVal(text);
     }
   };
   const keyDown = (e: any) => {
     if (e.key === "Enter") {
-      sendAnswer(val);
+      sendAnswer(inputVal);
     }
   };
   async function sendAnswer(answer: string) {
@@ -37,30 +39,21 @@ const Level = ({ mainHint, commentHint, ldata }: propType) => {
         body: JSON.stringify({ answer: answer, path: ldata }),
       });
       const val = await data.json();
-      console.log(val);
-      if (val) {
-        setStatusNext(true);
-      } else {
-        setStatusNext(false);
-        setVal("");
-      }
     }
   }
   return (
     <div className="flex h-80 w-72 flex-col items-center justify-center gap-1 rounded-lg bg-slate-800">
       <div className="flex h-32 w-40 items-center justify-center rounded-2xl bg-slate-500">
+        {commentHint !== null && <HtmlComment text={commentHint} />}
         {mainHint}
+        {img !== null && (
+          <Image src={img} alt="image" width={100} height={100} />
+        )}
       </div>
       <div className="flex h-28 w-52 items-center justify-center rounded-2xl bg-slate-500">
-        <input onChange={change} value={val} onKeyDown={keyDown} />
+        <input onChange={change} value={inputVal} onKeyDown={keyDown} />
       </div>
-      <button onClick={() => sendAnswer(val)}>Submit</button>
-      <NextButton
-        levelData={ldata}
-        status={statusNext}
-        fn={setVal}
-        fn2={setStatusNext}
-      />
+      <button onClick={() => sendAnswer(inputVal)}>Submit</button>
     </div>
   );
 };

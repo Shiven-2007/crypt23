@@ -4,9 +4,8 @@ export {};
 
 declare global {
   interface leveldatatype {
-    section: string;
+    suspect: string;
     level: string;
-    branch: string;
   }
 }
 export declare module "*.mp4" {

@@ -65,8 +65,7 @@ model User {
     accounts      Account[]
     sessions      Session[]
     attempts      Attempt[]
-    section       Int       @default(1)
-    branch        String?
+    suspect       Int
     level         Int       @default(1)
     score         Int       @default(0)
 
@@ -79,8 +78,7 @@ model Attempt {
     user_id     String
     user        User     @relation(fields: [user_id], references: [id], onDelete: Cascade)
     school      School   @relation(fields: [school_id], references: [code], onDelete: Cascade)
-    section     Int
-    branch      String
+    suspect     Int
     level       Int
     createdAt   DateTime @default(now())
     updatedAt   DateTime @updatedAt
