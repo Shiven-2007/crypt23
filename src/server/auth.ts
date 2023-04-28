@@ -88,7 +88,7 @@ export const authOptions: NextAuthOptions = {
       }
     },
   },
-  secret: "https://cryptatrix.xyz/api/auth/signin/discord",
+  secret: process.env.NEXTAUTH_SECRET,
 };
 
 /**
