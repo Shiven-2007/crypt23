@@ -31,12 +31,10 @@ declare module "next-auth" {
       userId: string;
       schoolId: string;
       level: number;
-      branch: string;
-      section: number;
+      suspect: number;
     }[];
     level: number;
-    branch: string;
-    section: number;
+    suspect: number;
     school_id: string;
     // ...other properties
     // role: UserRole;
@@ -67,22 +65,22 @@ export const authOptions: NextAuthOptions = {
      * Most other providers require a bit more work than the Discord provider. For example, the
      * GitHub provider requires you to add the `refresh_token_expires_in` field to the Account
      * model. Refer to the NextAuth.js docs for the provider you want to use. Example:
-    *
-    * @see https://next-auth.js.org/providers/github
-    */
+     *
+     * @see https://next-auth.js.org/providers/github
+     */
   ],
   secret: process.env.NEXTAUTH_SECRET,
   events: {
     signIn: async ({ user, isNewUser }) => {
       if (isNewUser) {
-        const branches = ["a", "b", "c"];
+        const branches = [1, 2, 3];
         const branch = branches[Math.round(Math.random() * 2)];
         const updateUser = await prisma.user.update({
           where: {
             id: user.id,
           },
           data: {
-            branch: branch,
+            suspect: branch,
           },
         });
         updateUser;
