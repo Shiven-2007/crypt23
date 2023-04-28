@@ -5,9 +5,9 @@
       "levels": [
         {
           "levelNumber": "1",
-          "question": "",
+          "question": "s1 l1",
           "hint": "",
-          "image": ""
+          "image": null
         },
         {
           "levelNumber": "2",

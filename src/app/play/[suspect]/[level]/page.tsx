@@ -6,7 +6,7 @@ import levels from "@/app/leveldat.json";
 export default async function Page({ params }: { params: leveldatatype }) {
   const session = await getServerAuthSession();
 
-  if (!session) {
+  if (!session || !session.user.school_id) {
     return (
       <main>
         Not logged in

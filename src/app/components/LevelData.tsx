@@ -40,9 +40,10 @@ const Level = ({ mainHint, commentHint, ldata, img }: propType) => {
         method: "POST",
         body: JSON.stringify({ answer: answer, path: ldata }),
       });
-      const { status, redUrl } = await data.json();
-      if (status === "true") {
-        myUrl.current = redUrl;
+      const res = await data.json();
+      if (res.status === "200") {
+        myUrl.current = res.redUrl;
+        setStatus(true);
       }
     }
   }

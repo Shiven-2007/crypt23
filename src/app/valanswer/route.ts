@@ -6,6 +6,7 @@ import { getCurrentUser } from "@/server/auth";
 export async function POST(req: Request) {
   const ans = await req.json();
   async function checkAnswer(levelData: leveldatatype, userAnswer: string) {
+    console.log("sheeeeeeeeee", levelData);
     let levelpath: number = parseInt(levelData.level);
     let suspectpath: number = parseInt(levelData.suspect);
     const answer = answerData.answers.find(
@@ -64,5 +65,5 @@ export async function POST(req: Request) {
     }
   }
 
-  checkAnswer(ans.levelData, ans.userAnswer);
+  return checkAnswer(ans.path, ans.answer);
 }
