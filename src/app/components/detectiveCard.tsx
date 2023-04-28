@@ -6,7 +6,6 @@ import { Poppins as myfont } from "next/font/google";
 const inconsolata = myfont({ subsets: ["latin"], weight: ["400"] });
 
 const DetectiveCard = (props: any) => {
-  console.log(props);
   const name = schoolData.schools.find(
     (a) => a.schoolCode == props.school_id
   )?.schoolName;
@@ -23,14 +22,14 @@ const DetectiveCard = (props: any) => {
       <div className="detective-details">
         <ul>
           <li>Name: {props.name}</li>
-          <li>Experience: {props.id[props.id.length - 1]}</li>
+          <li>Experience: {props.id.match(/[2-9]/) ?? "1"}</li>
           <li className="org">
             <div className="org-container">
               Organisation: <div className="ml-3">{name}</div>
             </div>
           </li>
           <li>Contract: ACTIVE</li>
-          <li>Investigating: {`Suspect #1`}</li>
+          <li>Investigating: {`Suspect #${props.suspect}`}</li>
         </ul>
       </div>
     </div>
