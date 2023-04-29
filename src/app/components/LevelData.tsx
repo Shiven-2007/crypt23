@@ -15,6 +15,7 @@ const HtmlComment = ({ text }: { text: string }) => {
 };
 const Level = ({ mainHint, commentHint, ldata, img }: propType) => {
   const myUrl = useRef("");
+  const [checkAnswerStatus, setCheckAnswerStatus] = useState(false);
   const [inputVal, setInputVal] = useState("");
   const [status, setStatus] = useState(false);
   const allowedChars = "abcdefghijklmnopqrstuvwxyz1234567890";
@@ -37,6 +38,7 @@ const Level = ({ mainHint, commentHint, ldata, img }: propType) => {
   };
   async function sendAnswer(answer: string) {
     if (!!answer) {
+      setCheckAnswerStatus(true);
       const data = await fetch("/valanswer", {
         method: "POST",
         body: JSON.stringify({ answer: answer, path: ldata }),
@@ -45,6 +47,8 @@ const Level = ({ mainHint, commentHint, ldata, img }: propType) => {
       if (res.status === "200") {
         myUrl.current = res.redUrl;
         setStatus(true);
+      } else {
+        setCheckAnswerStatus(false);
       }
     }
   }
@@ -62,9 +66,11 @@ const Level = ({ mainHint, commentHint, ldata, img }: propType) => {
         </div>
         <div className="flex w-3/5 flex-col overflow-scroll overflow-x-hidden rounded-2xl bg-black p-4">
           {commentHint !== null && <HtmlComment text={commentHint} />}
-          {mainHint}
+          {mainHint.split("\n").map((a, i) => (
+            <p key={i}>{a}</p>
+          ))}
           {img !== null && img !== "" && (
-            <Image src={img} alt="image" width={300} height={300} />
+            <img src={img} alt="image" width={300} height={300} />
           )}
         </div>
       </div>
@@ -87,8 +93,9 @@ const Level = ({ mainHint, commentHint, ldata, img }: propType) => {
             />
           </div>
           <button
-            className="rounded-full bg-red-800 p-3 px-20 transition ease-in-out hover:bg-red-700"
+            className="sendans rounded-full bg-red-800 p-3 px-20 transition ease-in-out"
             onClick={() => sendAnswer(inputVal)}
+            disabled={inputVal === "" || inputVal === null || checkAnswerStatus}
           >
             Submit
           </button>
@@ -96,6 +103,7 @@ const Level = ({ mainHint, commentHint, ldata, img }: propType) => {
             redUrl={myUrl.current}
             status={status}
             setStatus={setStatus}
+            answerStatus={setCheckAnswerStatus}
           />
         </div>
       </div>

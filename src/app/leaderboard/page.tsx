@@ -26,11 +26,11 @@ export default async function Page() {
   const dat = (await getData()).filter((a) => a.school_id != null);
   return (
     <>
-      <div className={"leaderboard " + poppins.className}>
+      <div className={"leaderboard pb-20 " + poppins.className}>
         <span className={"mb-12 text-7xl " + foont.className}>Leaderboard</span>
         {dat.map((school, index) => (
           <div
-            className="leaderboard-work mx-36 flex justify-between border-l-2 border-r-2 border-t-2 py-4 align-middle"
+            className="leaderboard-work mx-36 flex items-center justify-between border-l-2 border-r-2 border-t-2 py-4"
             key={index}
           >
             <div className="border-r-2 px-5 ">{index + 1}</div>
@@ -40,7 +40,9 @@ export default async function Page() {
                   ?.schoolName
               }
             </div>
-            <div className="px-5">{school._max.score}</div>
+            <div className="flex w-32 items-center justify-center px-5">
+              {school._max.score}
+            </div>
           </div>
         ))}
       </div>

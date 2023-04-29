@@ -683,3 +683,8 @@ html {
   border: 2px solid var(--detective-primary);
   color: var(--detective-primary);
 }
+
+.sendans:disabled {
+  background-color: #2e2e2e;
+  cursor: not-allowed;
+}

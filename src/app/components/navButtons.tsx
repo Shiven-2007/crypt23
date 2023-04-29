@@ -5,9 +5,10 @@ interface Props {
   status: boolean;
   setStatus: any;
   redUrl: string;
+  answerStatus: any;
 }
 
-const NextButton = ({ redUrl, status, setStatus }: Props) => {
+const NextButton = ({ redUrl, status, setStatus, answerStatus }: Props) => {
   const router = useRouter();
   if (status == true) {
     return (
@@ -15,6 +16,7 @@ const NextButton = ({ redUrl, status, setStatus }: Props) => {
         onClick={(e) => {
           router.push(redUrl);
           setStatus("");
+          answerStatus(false);
         }}
         className="rounded-full bg-red-800 p-3 px-20 transition ease-in-out hover:bg-red-700"
       >
