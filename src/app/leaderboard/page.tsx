@@ -38,7 +38,6 @@ export default async function Page() {
   return (
     <>
       <div className={"leaderboard pb-20 " + poppins.className}>
-        <RefreshButton refresh={getData} />
         <span className={"mb-12 text-7xl " + foont.className}>Leaderboard</span>
         {data.map((school, index) => (
           <div
