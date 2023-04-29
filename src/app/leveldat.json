@@ -147,6 +147,76 @@
           "levelNumber": "1",
           "question": "",
           "hint": "",
+          "image": "https://media.discordapp.net/attachments/755294040299274280/1101897704583483402/nuggetcat.png?width=560&height=535"
+        },
+        {
+          "levelNumber": "2",
+          "question": "",
+          "hint": "",
+          "image": ""
+        },
+        {
+          "levelNumber": "3",
+          "question": "",
+          "hint": "",
+          "image": ""
+        },
+        {
+          "levelNumber": "4",
+          "question": "",
+          "hint": "",
+          "image": ""
+        },
+        {
+          "levelNumber": "5",
+          "question": "",
+          "hint": "",
+          "image": ""
+        }
+      ]
+    },
+    {
+      "suspectNumber": "6",
+      "levels": [
+        {
+          "levelNumber": "1",
+          "question": "",
+          "hint": "",
+          "image": "https://cdn.discordapp.com/attachments/1101814922490433606/1101816055401291796/poop.png"
+        },
+        {
+          "levelNumber": "2",
+          "question": "",
+          "hint": "",
+          "image": ""
+        },
+        {
+          "levelNumber": "3",
+          "question": "",
+          "hint": "",
+          "image": ""
+        },
+        {
+          "levelNumber": "4",
+          "question": "",
+          "hint": "",
+          "image": ""
+        },
+        {
+          "levelNumber": "5",
+          "question": "",
+          "hint": "",
+          "image": ""
+        }
+      ]
+    },
+    {
+      "suspectNumber": "7",
+      "levels": [
+        {
+          "levelNumber": "1",
+          "question": "Welcome to the level ever. I am not the killer. Straightforward. Wait shit who said anything about a killing-",
+          "hint": "/utaxtime",
           "image": ""
         },
         {
