@@ -95,21 +95,42 @@
       "suspectNumber": "3",
       "levelNumber": "4",
       "answer": [
-        "alldoer"
+        "852391419"
       ]
     },
     {
       "suspectNumber": "3",
       "levelNumber": "5",
       "answer": [
-        "alldoer"
+        "akitkat"
       ]
     },
     {
-      "suspectNumber": "3",
+      "suspectNumber": "4",
+      "levelNumber": "1",
+      "answer": [
+        "vendetta"
+      ]
+    },
+    {
+      "suspectNumber": "4",
       "levelNumber": "2",
       "answer": [
-        "alldoer"
+        "iknowsomeonewhowantsrevenge"
+      ]
+    },
+    {
+      "suspectNumber": "4",
+      "levelNumber": "3",
+      "answer": [
+        "helives"
+      ]
+    },
+    {
+      "suspectNumber": "4",
+      "levelNumber": "4",
+      "answer": [
+        "everybodylovesanoutlaw"
       ]
     }
   ]
