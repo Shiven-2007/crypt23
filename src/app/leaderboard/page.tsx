@@ -7,9 +7,15 @@ const foont = Fooont({ subsets: ["latin"], weight: ["500"] });
 const getData = async () => {
   const users = await prisma.user.groupBy({
     by: ["school_id"],
+    where: {
+      banned: {
+        equals: false,
+      },
+    },
     _max: {
       score: true,
     },
+
     orderBy: [
       {
         _max: {
