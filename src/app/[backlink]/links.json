@@ -54,7 +54,7 @@
         {
             "linkName": "simratissusrat",
             "password": null,
-            "res": "e = [‘lmq’,’vmq’,’pmq’,’fmq,’hmq’,’dmq’,’wmq’,’omq’,’kmq’,’tmq’] /n tvmrx(e[2], e[5])"
+            "res": "e = [‘lmq’,’vmq’,’pmq’,’fmq,’hmq’,’dmq’,’wmq’,’omq’,’kmq’,’tmq’] /n tvmrx(e[6], e[9])"
         }
     ]
 }
