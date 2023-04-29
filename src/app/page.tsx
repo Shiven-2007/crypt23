@@ -8,14 +8,16 @@ import Bg from "./components/bg";
 
 export default async function Page() {
   const user = await getCurrentUser();
-  if user.banned {
-    return (
-      <div className="hpage  h-full w-full bg-transparent text-white">
-      <Text str="CRYPT@TRIX" />
-      <h1 className="text-3xl text-center">You have been banned</h1>
-      <Bg />
-    </div>
-    )
+  if (!!user) {
+    if (user.banned) {
+      return (
+        <div className="hpage  h-full w-full bg-transparent text-white">
+          <Text str="CRYPT@TRIX" />
+          <h1 className="text-center text-3xl">You have been banned</h1>
+          <Bg />
+        </div>
+      );
+    }
   }
   return (
     <div className="hpage  h-full w-full bg-transparent text-white">
