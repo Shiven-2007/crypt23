@@ -4,31 +4,31 @@ import { Lexend as Fooont, Poppins } from "next/font/google";
 
 const poppins = Poppins({ subsets: ["latin"], weight: ["400"] });
 const foont = Fooont({ subsets: ["latin"], weight: ["500"] });
-const getData = async () => {
-  const users = await prisma.user.groupBy({
-    by: ["school_id"],
-    where: {
-      banned: {
-        equals: false,
-      },
-    },
-    _max: {
-      score: true,
-    },
-
-    orderBy: [
-      {
-        _max: {
-          score: "desc",
-        },
-      },
-    ],
-  });
-
-  return users;
-};
 
 export default async function Page() {
+  const getData = async () => {
+    const users = await prisma.user.groupBy({
+      by: ["school_id"],
+      where: {
+        banned: {
+          equals: false,
+        },
+      },
+      _max: {
+        score: true,
+      },
+
+      orderBy: [
+        {
+          _max: {
+            score: "desc",
+          },
+        },
+      ],
+    });
+
+    return users;
+  };
   const dat = (await getData()).filter((a) => a.school_id != null);
   return (
     <>
