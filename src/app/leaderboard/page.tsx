@@ -13,6 +13,9 @@ export default async function Page() {
         banned: {
           equals: false,
         },
+        school_id: {
+          not: null,
+        },
       },
       _max: {
         score: true,
@@ -29,7 +32,7 @@ export default async function Page() {
 
     return users;
   };
-  const dat = (await getData()).filter((a) => a.school_id != null);
+  const dat = await getData();
   return (
     <>
       <div className={"leaderboard pb-20 " + poppins.className}>
