@@ -68,6 +68,7 @@ model User {
     suspect       Int       @default(0)
     level         Int       @default(1)
     score         Int       @default(0)
+    banned        Boolean   @default(false)
 
     @@index([school_id])
 }

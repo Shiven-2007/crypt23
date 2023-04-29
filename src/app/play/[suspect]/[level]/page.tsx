@@ -13,6 +13,8 @@ export default async function Page({ params }: { params: leveldatatype }) {
         <Link href="/">Home</Link>
       </main>
     );
+  } else if (session.user.banned) {
+    return <main>You have been banned</main>;
   } else if (!session.user.school_id) {
     return (
       <main>

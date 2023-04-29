@@ -37,6 +37,7 @@ declare module "next-auth" {
     suspect: number;
     school_id: string;
     score: number;
+    banned: boolean;
     // ...other properties
     // role: UserRole;
   }
