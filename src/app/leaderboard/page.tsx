@@ -2,6 +2,8 @@ import { prisma } from "@/server/db";
 import schoolData from "../schoolData.json";
 import { Lexend as Fooont, Poppins } from "next/font/google";
 
+import RefreshButton from "../components/refresh";
+
 const poppins = Poppins({ subsets: ["latin"], weight: ["400"] });
 const foont = Fooont({ subsets: ["latin"], weight: ["500"] });
 
@@ -32,12 +34,13 @@ export default async function Page() {
 
     return users;
   };
-  const dat = await getData();
+  const data = await getData();
   return (
     <>
       <div className={"leaderboard pb-20 " + poppins.className}>
+        <RefreshButton refresh={getData} />
         <span className={"mb-12 text-7xl " + foont.className}>Leaderboard</span>
-        {dat.map((school, index) => (
+        {data.map((school, index) => (
           <div
             className="leaderboard-work mx-36 flex items-center justify-between border-l-2 border-r-2 border-t-2 py-4"
             key={index}
