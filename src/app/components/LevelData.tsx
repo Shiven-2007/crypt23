@@ -67,9 +67,7 @@ const Level = ({ mainHint, commentHint, ldata, img }: propType) => {
         <div className="flex w-3/5 flex-col overflow-scroll overflow-x-hidden rounded-2xl bg-black p-4">
           {commentHint !== null && <HtmlComment text={commentHint} />}
           {mainHint.split("\n").map((a, i) => (
-            <p key={i}>
-              {a} <br />
-            </p>
+            <p key={i}>{a}</p>
           ))}
           {img !== null && img !== "" && (
             <img src={img} alt="image" width={300} height={300} />
