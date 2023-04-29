@@ -6,7 +6,7 @@ const poppins = Poppins({ subsets: ["latin"], weight: ["400"] });
 const foont = Fooont({ subsets: ["latin"], weight: ["500"] });
 
 export default async function Page() {
-  const getData = async () => {
+  const getDataa = async () => {
     const users = await prisma.user.groupBy({
       by: ["school_id"],
       where: {
@@ -32,19 +32,12 @@ export default async function Page() {
 
     return users;
   };
-  let dat = await getData();
+  let data1 = await getDataa();
   return (
     <>
       <div className={"leaderboard pb-20 " + poppins.className}>
         <span className={"mb-12 text-7xl " + foont.className}>Leaderboard</span>
-        <button
-          onClick={async () => {
-            dat = await getData();
-          }}
-        >
-          Refresh
-        </button>
-        {dat.map((school, index) => (
+        {data1.map((school, index) => (
           <div
             className="leaderboard-work mx-36 flex items-center justify-between border-l-2 border-r-2 border-t-2 py-4"
             key={index}
