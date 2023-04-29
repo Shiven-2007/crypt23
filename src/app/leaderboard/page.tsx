@@ -7,7 +7,7 @@ const foont = Fooont({ subsets: ["latin"], weight: ["500"] });
 
 export default async function Page() {
   const getDataa = async () => {
-    const call = await fetch("https://cryptatrix.xyz/transformers", {
+    const call = await fetch("/transformers", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
