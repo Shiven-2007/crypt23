@@ -32,11 +32,18 @@ export default async function Page() {
 
     return users;
   };
-  const dat = await getData();
+  let dat = await getData();
   return (
     <>
       <div className={"leaderboard pb-20 " + poppins.className}>
         <span className={"mb-12 text-7xl " + foont.className}>Leaderboard</span>
+        <button
+          onClick={async () => {
+            dat = await getData();
+          }}
+        >
+          Refresh
+        </button>
         {dat.map((school, index) => (
           <div
             className="leaderboard-work mx-36 flex items-center justify-between border-l-2 border-r-2 border-t-2 py-4"
