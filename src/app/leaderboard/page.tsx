@@ -9,37 +9,18 @@ const foont = Fooont({ subsets: ["latin"], weight: ["500"] });
 
 export default async function Page() {
   const getData = async () => {
-    const users = await prisma.user.groupBy({
-      by: ["school_id"],
-      where: {
-        banned: {
-          equals: false,
-        },
-        school_id: {
-          not: null,
-        },
-      },
-      _max: {
-        score: true,
-      },
-
-      orderBy: [
-        {
-          _max: {
-            score: "desc",
-          },
-        },
-      ],
+    const users = await fetch("https://cryptatrix.xyz/getschools", {
+      method: "GET",
     });
-
-    return users;
+    const res = await users.json();
+    return res.data;
   };
   const data = await getData();
   return (
     <>
       <div className={"leaderboard pb-20 " + poppins.className}>
         <span className={"mb-12 text-7xl " + foont.className}>Leaderboard</span>
-        {data.map((school, index) => (
+        {data.map((school: any, index: any) => (
           <div
             className="leaderboard-work mx-36 flex items-center justify-between border-l-2 border-r-2 border-t-2 py-4"
             key={index}
