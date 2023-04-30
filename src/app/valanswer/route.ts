@@ -4,6 +4,10 @@ import answerData from "./validans.json";
 import { getCurrentUser } from "@/server/auth";
 
 export async function POST(req: Request) {
+  const endDate = new Date("2023-05-01T00:00:00.000Z");
+  if (Date.now() > endDate.getTime()) {
+    return NextResponse.json({ status: "400" });
+  }
   const ans = await req.json();
   async function checkAnswer(levelData: leveldatatype, userAnswer: string) {
     console.log("sheeeeeeeeee", levelData);

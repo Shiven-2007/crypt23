@@ -14,8 +14,14 @@ interface propType {
 const HtmlComment = ({ text }: { text: string }) => {
   return <span dangerouslySetInnerHTML={{ __html: `<!-- ${text} -->` }} />;
 };
+
+const endDate = new Date("2023-05-01T00:00:00.000Z");
+
 const Level = ({ mainHint, commentHint, ldata, img, vid }: propType) => {
   const router = useRouter();
+  if (Date.now() > endDate.getTime()) {
+    router.push("/end");
+  }
   const myUrl = useRef("");
   const { suspect, level } = ldata;
   const [checkAnswerStatus, setCheckAnswerStatus] = useState(false);
