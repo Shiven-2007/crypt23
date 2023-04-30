@@ -164,6 +164,20 @@
       ]
     },
     {
+      "suspectNumber": "5",
+      "levelNumber": "4",
+      "answer": [
+        "chipmunks"
+      ]
+    },
+    {
+      "suspectNumber": "5",
+      "levelNumber": "5",
+      "answer": [
+        "monday"
+      ]
+    },
+    {
       "suspectNumber": "6",
       "levelNumber": "1",
       "answer": [
@@ -185,6 +199,20 @@
       ]
     },
     {
+      "suspectNumber": "6",
+      "levelNumber": "4",
+      "answer": [
+        "rampur"
+      ]
+    },
+    {
+      "suspectNumber": "6",
+      "levelNumber": "5",
+      "answer": [
+        "blueberryandlabushla"
+      ]
+    },
+    {
       "suspectNumber": "7",
       "levelNumber": "1",
       "answer": [
@@ -203,6 +231,20 @@
       "levelNumber": "3",
       "answer": [
         "jalebionafork"
+      ]
+    },
+    {
+      "suspectNumber": "7",
+      "levelNumber": "4",
+      "answer": [
+        "nakina"
+      ]
+    },
+    {
+      "suspectNumber": "7",
+      "levelNumber": "5",
+      "answer": [
+        "doorlogmira.exe"
       ]
     }
   ]
