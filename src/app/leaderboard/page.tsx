@@ -9,12 +9,29 @@ const foont = Fooont({ subsets: ["latin"], weight: ["500"] });
 
 export default async function Page() {
   const getData = async () => {
-    const users = await fetch("https://cryptatrix.xyz/getschools", {
-      method: "GET",
-      cache: "no-store",
+    const users = await prisma.user.groupBy({
+      by: ["school_id"],
+      where: {
+        banned: {
+          equals: false,
+        },
+        school_id: {
+          not: null,
+        },
+      },
+      _max: {
+        score: true,
+      },
+
+      orderBy: [
+        {
+          _max: {
+            score: "desc",
+          },
+        },
+      ],
     });
-    const res = await users.json();
-    return res.data;
+    return users;
   };
   const data = await getData();
   return (
