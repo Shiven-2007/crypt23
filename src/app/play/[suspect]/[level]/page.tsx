@@ -28,6 +28,12 @@ export default async function Page({
         <Link href="/">Home</Link>
       </main>
     );
+  } else if (process.env.END_HUNT == "true") {
+    return (
+      <main className="flex items-center justify-center bg-black text-white">
+        Hunt has ended
+      </main>
+    );
   } else if (
     session.user.level != parseInt(params.level) ||
     session.user.suspect != parseInt(params.suspect)

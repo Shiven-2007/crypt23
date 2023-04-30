@@ -36,6 +36,13 @@ const getData = async () => {
 };
 
 export default async function Page() {
+  if (process.env.END_HUNT == "true") {
+    return (
+      <main className="flex items-center justify-center bg-black text-white">
+        <h1>Hunt has ended</h1>
+      </main>
+    );
+  }
   const data = await getData();
   const max = 60;
   console.log("");

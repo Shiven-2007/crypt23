@@ -19,6 +19,13 @@ export default async function Page() {
       );
     }
   }
+  if (process.env.END_HUNT == "true") {
+    return (
+      <main className="flex items-center justify-center bg-black text-white">
+        Hunt has ended
+      </main>
+    );
+  }
   return (
     <div className="hpage  h-full w-full bg-transparent text-white">
       {/* @ts-expect-error Async Server Component */}
