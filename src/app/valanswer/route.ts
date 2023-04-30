@@ -34,7 +34,31 @@ export async function POST(req: Request) {
       },
     });
     addAttempt;
-    if (answer!.answer.indexOf(userAnswer) != -1) {
+    if (
+      answer!.answer.indexOf(userAnswer) != -1 &&
+      user!.level == parseInt(levelData.level) &&
+      user!.suspect == parseInt(levelData.suspect)
+    ) {
+      if (levelData.level == "5" && levelData.suspect == "8") {
+        levelpath = 1;
+        suspectpath = 9;
+        const updateUser = await prisma.user.update({
+          where: {
+            id: user!.id,
+          },
+          data: {
+            level: levelpath,
+            suspect: suspectpath,
+            score: user!.score + 50,
+            finished: true,
+          },
+        });
+        updateUser;
+        return NextResponse.json({
+          status: "200",
+          redUrl: `/play/${suspectpath}/${levelpath}`,
+        });
+      }
       if (levelData.level != "5") {
         levelpath = parseInt(levelData.level) + 1;
       } else if (levelData.level == "5") {

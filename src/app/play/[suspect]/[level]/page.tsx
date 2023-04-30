@@ -12,7 +12,6 @@ export default async function Page({
   searchParams: { vid?: string };
 }) {
   const session = await getServerAuthSession();
-
   if (!session || !session.user.school_id) {
     return (
       <main>
@@ -40,6 +39,7 @@ export default async function Page({
       </main>
     );
   }
+
   const user = await getCurrentUser();
   const level = params.level;
   const suspect = params.suspect;
@@ -47,6 +47,18 @@ export default async function Page({
     level: level,
     suspect: suspect,
   };
+  if (!!user && ["9", "10", "11"].includes(levelData.suspect)) {
+    return (
+      <>
+        <p>
+          <h1>You have ended the hunt</h1>
+          <h2>Thank you for participating</h2>
+          <h3>Results will be announced soon</h3>
+          <p>prediction: you are {user.name}</p>
+        </p>
+      </>
+    );
+  }
 
   interface questionResult {
     question: string;

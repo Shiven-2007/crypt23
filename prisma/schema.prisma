@@ -69,6 +69,7 @@ model User {
     level         Int       @default(1)
     score         Int       @default(0)
     banned        Boolean   @default(false)
+    finished      Boolean   @default(false)
 
     @@index([school_id])
 }
