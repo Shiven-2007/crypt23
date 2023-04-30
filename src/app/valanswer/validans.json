@@ -137,9 +137,65 @@
       "suspectNumber": "4",
       "levelNumber": "5",
       "answer": [
-        "nugget",
+        "nugget#1491",
         "siya",
-        "utkarsh"
+        "sigma chan#0089"
+      ]
+    },
+    {
+      "suspectNumber": "5",
+      "levelNumber": "1",
+      "answer": [
+        "mcflurry"
+      ]
+    },
+    {
+      "suspectNumber": "5",
+      "levelNumber": "2",
+      "answer": [
+        "chocolate"
+      ]
+    },
+    {
+      "suspectNumber": "5",
+      "levelNumber": "3",
+      "answer": [
+        "spider"
+      ]
+    },
+    {
+      "suspectNumber": "6",
+      "levelNumber": "1",
+      "answer": [
+        "tesa"
+      ]
+    },
+    {
+      "suspectNumber": "6",
+      "levelNumber": "2",
+      "answer": [
+        "pop"
+      ]
+    },
+    {
+      "suspectNumber": "6",
+      "levelNumber": "3",
+      "answer": [
+        "siyalovesbasketball"
+      ]
+    },
+    {
+      "suspectNumber": "7",
+      "levelNumber": "1",
+      "answer": [
+        "4threal"
+      ]
+    },
+    {
+      "suspectNumber": "7",
+      "levelNumber": "2",
+      "answer": [
+        "majnukatila"
       ]
     }
   ]
