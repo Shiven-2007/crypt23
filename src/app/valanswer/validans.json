@@ -274,6 +274,15 @@
       "answer": [
         "exprogramminghead"
       ]
+    },
+    {
+      "suspectNumber": "8",
+      "levelNumber": "5",
+      "answer": [
+        "dblives",
+        "dbisdead",
+        "benisalive"
+      ]
     }
   ]
 }
