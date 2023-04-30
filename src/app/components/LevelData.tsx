@@ -18,7 +18,7 @@ const Level = ({ mainHint, commentHint, ldata, img }: propType) => {
   const [checkAnswerStatus, setCheckAnswerStatus] = useState(false);
   const [inputVal, setInputVal] = useState("");
   const [status, setStatus] = useState(false);
-  const allowedChars = "abcdefghijklmnopqrstuvwxyz1234567890";
+  const allowedChars = "abcdefghijklmnopqrstuvwxyz1234567890#";
   const change = (e: any) => {
     const text = e.target.value.toLowerCase();
     let status = true;
