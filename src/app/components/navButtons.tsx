@@ -14,7 +14,7 @@ const NextButton = ({ redUrl, status, setStatus, answerStatus }: Props) => {
     return (
       <button
         onClick={(e) => {
-          router.push(redUrl);
+          router.replace(redUrl);
           setStatus("");
           answerStatus(false);
         }}
