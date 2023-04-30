@@ -49,7 +49,7 @@ export default async function Page() {
       );
     }
   });
-
+  console.log("");
   return (
     <>
       <div className={"leaderboard pb-20 " + poppins.className}>
