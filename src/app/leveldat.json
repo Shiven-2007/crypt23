@@ -244,6 +244,41 @@
           "image": ""
         }
       ]
+    },
+    {
+      "suspectNumber": "8",
+      "levels": [
+        {
+          "levelNumber": "1",
+          "question": "Recently evicted from Pyrotech with a vote of no confidence. It appears Nakina’s keycards and everything were still working. A perfect revenge?",
+          "hint": "https://prnt.sc/NlfUqgN8YO2y                                                                    00111011 00111111 00111001 00111101 (ge)",
+          "image": ""
+        },
+        {
+          "levelNumber": "2",
+          "question": "",
+          "hint": "",
+          "image": ""
+        },
+        {
+          "levelNumber": "3",
+          "question": "",
+          "hint": "",
+          "image": ""
+        },
+        {
+          "levelNumber": "4",
+          "question": " ",
+          "hint": "",
+          "image": ""
+        },
+        {
+          "levelNumber": "5",
+          "question": "",
+          "hint": "",
+          "image": ""
+        }
+      ]
     }
   ]
 }
