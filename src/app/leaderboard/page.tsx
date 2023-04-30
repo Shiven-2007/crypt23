@@ -11,7 +11,7 @@ export default async function Page() {
   const getData = async () => {
     const users = await fetch("https://cryptatrix.xyz/getschools", {
       method: "GET",
-      cache: "no-cache",
+      cache: "no-store",
     });
     const res = await users.json();
     return res.data;
