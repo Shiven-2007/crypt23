@@ -1,6 +1,6 @@
 "use client";
-import { useRouter } from "next/router";
-import { useRef, useState } from "react";
+import { useRouter } from "next/navigation";
+import { useRef, useState, useEffect } from "react";
 import NextButton from "@/app/components/navButtons";
 import Image from "next/image";
 import { send } from "process";
@@ -9,12 +9,15 @@ interface propType {
   commentHint: string | null;
   ldata: leveldatatype;
   img: string | null;
+  vid?: string;
 }
 const HtmlComment = ({ text }: { text: string }) => {
   return <span dangerouslySetInnerHTML={{ __html: `<!-- ${text} -->` }} />;
 };
-const Level = ({ mainHint, commentHint, ldata, img }: propType) => {
+const Level = ({ mainHint, commentHint, ldata, img, vid }: propType) => {
+  const router = useRouter();
   const myUrl = useRef("");
+  const { suspect, level } = ldata;
   const [checkAnswerStatus, setCheckAnswerStatus] = useState(false);
   const [inputVal, setInputVal] = useState("");
   const [status, setStatus] = useState(false);
@@ -31,6 +34,12 @@ const Level = ({ mainHint, commentHint, ldata, img }: propType) => {
       setInputVal(text);
     }
   };
+
+  useEffect(() => {
+    if (suspect === "8" && level === "2" && vid === "true")
+      router.push("/transition-video");
+  }, []);
+
   const keyDown = (e: any) => {
     if (e.key === "Enter") {
       sendAnswer(inputVal);
@@ -45,7 +54,9 @@ const Level = ({ mainHint, commentHint, ldata, img }: propType) => {
       });
       const res = await data.json();
       if (res.status === "200") {
-        myUrl.current = res.redUrl;
+        let url = res.redUrl;
+        if (suspect === "8" && level === "1") url += "?vid=true";
+        myUrl.current = url;
         setStatus(true);
       } else {
         setCheckAnswerStatus(false);

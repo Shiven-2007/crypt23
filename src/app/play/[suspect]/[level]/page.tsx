@@ -2,8 +2,15 @@ import Level from "../../../components/LevelData";
 import { getServerAuthSession, getCurrentUser } from "@/server/auth";
 import Link from "next/link";
 import levels from "@/app/leveldat.json";
+import { useRouter } from "next/navigation";
 
-export default async function Page({ params }: { params: leveldatatype }) {
+export default async function Page({
+  params,
+  searchParams: { vid },
+}: {
+  params: leveldatatype;
+  searchParams: { vid?: string };
+}) {
   const session = await getServerAuthSession();
 
   if (!session || !session.user.school_id) {
@@ -69,9 +76,10 @@ export default async function Page({ params }: { params: leveldatatype }) {
     };
   }
   const { question: q, comm: h, image: i } = getQuestion(levelData);
+
   return (
     <div className="flex h-full items-center justify-center bg-black">
-      <Level mainHint={q} commentHint={h} ldata={levelData} img={i} />
+      <Level mainHint={q} commentHint={h} ldata={levelData} img={i} vid={vid} />
     </div>
   );
 }

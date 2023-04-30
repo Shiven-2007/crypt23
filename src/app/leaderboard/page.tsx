@@ -7,32 +7,35 @@ import RefreshButton from "../components/refresh";
 const poppins = Poppins({ subsets: ["latin"], weight: ["400"] });
 const foont = Fooont({ subsets: ["latin"], weight: ["500"] });
 
-export default async function Page() {
-  const getData = async () => {
-    const users = await prisma.user.groupBy({
-      by: ["school_id"],
-      where: {
-        banned: {
-          equals: false,
-        },
-        school_id: {
-          not: null,
-        },
-      },
-      _max: {
-        score: true,
-      },
+export const revalidate = 0;
 
-      orderBy: [
-        {
-          _max: {
-            score: "desc",
-          },
+const getData = async () => {
+  const users = await prisma.user.groupBy({
+    by: ["school_id"],
+    where: {
+      banned: {
+        equals: false,
+      },
+      school_id: {
+        not: null,
+      },
+    },
+    _max: {
+      score: true,
+    },
+
+    orderBy: [
+      {
+        _max: {
+          score: "desc",
         },
-      ],
-    });
-    return users;
-  };
+      },
+    ],
+  });
+  return users;
+};
+
+export default async function Page() {
   const data = await getData();
   const max = 60;
   console.log("");
@@ -54,7 +57,7 @@ export default async function Page() {
     <>
       <div className={"leaderboard pb-20 " + poppins.className}>
         <span className={"mb-12 text-7xl " + foont.className}>Leaderboard</span>
-        {data.map((school: any, index: any) => (
+        {data.map((school: School, index: any) => (
           <div
             className="leaderboard-work mx-36 flex items-center justify-between border-l-2 border-r-2 border-t-2 py-4"
             key={index}
