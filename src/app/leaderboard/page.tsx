@@ -34,6 +34,22 @@ export default async function Page() {
     return users;
   };
   const data = await getData();
+  const max = 60;
+  console.log("");
+  data.map((school, index) => {
+    const name = schoolData.schools.find(
+      (a) => a.schoolCode == school.school_id
+    )?.schoolName;
+    if (name) {
+      console.log(
+        index,
+        name,
+        " ".repeat(max - name.length - index.toString().length),
+        school._max.score
+      );
+    }
+  });
+
   return (
     <>
       <div className={"leaderboard pb-20 " + poppins.className}>

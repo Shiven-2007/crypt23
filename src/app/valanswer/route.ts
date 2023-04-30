@@ -13,7 +13,9 @@ export async function POST(req: Request) {
       (a) =>
         a.suspectNumber == levelData.suspect && a.levelNumber == levelData.level
     );
-
+    if (answer == undefined) {
+      return NextResponse.json({ status: "400" });
+    }
     const user = await getCurrentUser();
     const branches = [1, 2, 3];
     console.log("yoyo", answer?.answer, userAnswer);
