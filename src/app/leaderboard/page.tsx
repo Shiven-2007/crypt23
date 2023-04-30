@@ -62,7 +62,7 @@ export default async function Page() {
             className="leaderboard-work mx-36 flex items-center justify-between border-l-2 border-r-2 border-t-2 py-4"
             key={index}
           >
-            <div className="border-r-2 px-5 ">{index + 1}</div>
+            <div className="border-r-2 px-5 ">{index}</div>
             <div>
               {
                 schoolData.schools.find((a) => a.schoolCode == school.school_id)
