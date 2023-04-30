@@ -209,7 +209,7 @@
       "suspectNumber": "6",
       "levelNumber": "5",
       "answer": [
-        "blueberryandlabushla"
+        "soyataxsoyataxsoyatax"
       ]
     },
     {
@@ -245,6 +245,34 @@
       "levelNumber": "5",
       "answer": [
         "doorlogmira.exe"
+      ]
+    },
+    {
+      "suspectNumber": "8",
+      "levelNumber": "1",
+      "answer": [
+        "shehatespyrotech"
+      ]
+    },
+    {
+      "suspectNumber": "8",
+      "levelNumber": "2",
+      "answer": [
+        "gaminghead"
+      ]
+    },
+    {
+      "suspectNumber": "8",
+      "levelNumber": "3",
+      "answer": [
+        "statistics"
+      ]
+    },
+    {
+      "suspectNumber": "8",
+      "levelNumber": "4",
+      "answer": [
+        "exprogramminghead"
       ]
     }
   ]
