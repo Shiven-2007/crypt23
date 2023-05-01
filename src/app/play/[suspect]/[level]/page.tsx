@@ -31,7 +31,8 @@ export default async function Page({
   } else if (process.env.END_HUNT == "true") {
     return (
       <main className="flex items-center justify-center bg-black text-white">
-        Hunt has ended
+        <h1>Hunt has ended</h1>
+        <h4>prediction: hyper nova jeeta</h4>
       </main>
     );
   } else if (

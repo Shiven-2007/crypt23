@@ -97,3 +97,10 @@ model VerificationToken {
 
     @@unique([identifier, token])
 }
+
+model CorrectAttempt {
+    id      String @id @default(cuid())
+    suspect Int
+    level   Int
+    attempt String
+}
