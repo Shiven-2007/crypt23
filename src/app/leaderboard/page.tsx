@@ -12,7 +12,6 @@ export default async function Page() {
     { _max: { score: 1000 }, school_id: "875389" },
     { _max: { score: 1000 }, school_id: "081947" },
     { _max: { score: 950 }, school_id: "879335" },
-    { _max: { score: 900 }, school_id: "825265" },
     { _max: { score: 850 }, school_id: "704944" },
     { _max: { score: 850 }, school_id: "726827" },
     { _max: { score: 800 }, school_id: "681316" },
